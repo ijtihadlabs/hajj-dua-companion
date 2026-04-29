@@ -1,0 +1,2658 @@
+{
+  "summary": {
+    "clean_overlay_repaired": 34,
+    "arabic_omitted": 260,
+    "main_entries_still_pdf_extracted_review": 0
+  },
+  "repaired": [
+    {
+      "id": "97f7b126c8",
+      "title": "Morning has come to us, and sovereignty belongs to Allah.",
+      "source_ref": "Muslim # 2723",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/muslim:2723"
+    },
+    {
+      "id": "0dd85f02ce",
+      "title": "Allah, Allah is my Lord; I do not associate anything with Him",
+      "source_ref": "Hisnul Muslim section: Supplication for one in distress, entry 121",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Ease and Relief",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/hisn:125"
+    },
+    {
+      "id": "218000d29d",
+      "title": "O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and u...",
+      "source_ref": "Bukhaari # 319",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/bukhari:3370"
+    },
+    {
+      "id": "623f74310a",
+      "title": "O Allah, Controller of the hearts, direct our hearts to Your obedience",
+      "source_ref": "Muslim # 2654",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:2654"
+    },
+    {
+      "id": "5e94b11a94",
+      "title": "O Allah, Lord of Jibril, Mika'il and Israfil, Creator of the heavens and the earth, Knower of the unseen an...",
+      "source_ref": "Muslim # 770",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:770"
+    },
+    {
+      "id": "63c5846359",
+      "title": "O Allah, place light in my heart, light on my tongue, light in my hearing, light in my sight, light above m...",
+      "source_ref": "Muslim # 763",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/muslim:763g"
+    },
+    {
+      "id": "13822eb849",
+      "title": "Allah is sufficient for us, and He is the best disposer of affairs",
+      "source_ref": "Hisnul Muslim section: Upon encountering an enemy or those of authority, entry 124",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Guidance and Imaan",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/hisn:128"
+    },
+    {
+      "id": "4f60d56bf3",
+      "title": "Allah is sufficient for me, and He is the best disposer of affairs",
+      "source_ref": "Hisnul Muslim section: Supplication when stricken with a mishap or overtaken by an affair, entry 137",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Guidance and Imaan",
+      "confidence": "strong",
+      "source_url": ""
+    },
+    {
+      "id": "c532e5e295",
+      "title": "Allah is the Greatest. Glory be to Allah",
+      "source_ref": "Hisnul Muslim section: Remembrance while ascending or descending, entry 205",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Guidance and Imaan",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/hisn:205"
+    },
+    {
+      "id": "f92c2d3308",
+      "title": "Praise is for Allah, by whose blessing good things are completed",
+      "source_ref": "Hisnul Muslim section: What to say upon receiving pleasing or displeasing news, entry 209",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Guidance and Imaan",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/hisn:218"
+    },
+    {
+      "id": "7fc0919cb3",
+      "title": "Glory be to Allah",
+      "source_ref": "Hisnul Muslim section: What to say at times of amazement and delight, entry 228",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Guidance and Imaan",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/hisn:228"
+    },
+    {
+      "id": "2483df2c09",
+      "title": "Allah is the Greatest",
+      "source_ref": "Hisnul Muslim section: What to say at times of amazement and delight, entry 229",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Guidance and Imaan",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/hisn:229"
+    },
+    {
+      "id": "b61d823007",
+      "title": "In the name of Allah",
+      "source_ref": "Hisnul Muslim section: Supplication for when the mounted animal (or mean of transport) stumbles, entry 201",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Hajj/Travel",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/hisn:201"
+    },
+    {
+      "id": "8941036140",
+      "title": "O Allah, I seek refuge in You from the decline of Your blessing, the change of Your protection and well-bei...",
+      "source_ref": "Muslim # 2739",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:2739"
+    },
+    {
+      "id": "882ec738ad",
+      "title": "O Allah, there is no life except the life of the Hereafter",
+      "source_ref": "Bukhaari # 2961",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/bukhari:2961"
+    },
+    {
+      "id": "b51c24a668",
+      "title": "O Allah, Revealer of the Book, Mover of the clouds, Defeater of the allied forces, defeat them and grant us...",
+      "source_ref": "Bukhaari # 2966",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Oppression and Help",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/bukhari:2966"
+    },
+    {
+      "id": "38aa2a39c5",
+      "title": "O Allah, set right for me my religion, which is the safeguard of my affairs; set right for me my worldly li...",
+      "source_ref": "Muslim # 2720",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:2720"
+    },
+    {
+      "id": "890f607bab",
+      "title": "O Allah, I seek refuge in Your might; there is no deity except You, lest You let me go astray.",
+      "source_ref": "Muslim # 2717",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:2717"
+    },
+    {
+      "id": "ecfd205c3c",
+      "title": "O Allah, I seek refuge in You from severe trial, from reaching misery, from an evil decree, and from the ma...",
+      "source_ref": "Bukhaari # 6347",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/bukhari:6347"
+    },
+    {
+      "id": "ce7924fdb6",
+      "title": "O Allah, I seek refuge in You from the evil of what I have done and from the evil of what I have not done",
+      "source_ref": "Muslim # 2739",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/muslim:2716"
+    },
+    {
+      "id": "38ecc6d50d",
+      "title": "O Allah, we seek refuge in You from turning back on our heels or being put to trial in our religion",
+      "source_ref": "Bukhaari # 6593",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/bukhari:6593"
+    },
+    {
+      "id": "8932ff0652",
+      "title": "Guide me to the best character, for none guides to the best of it except You, and turn away from me bad cha...",
+      "source_ref": "Muslim # 771",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/muslim:771"
+    },
+    {
+      "id": "b057544d31",
+      "title": "In the name of Allah",
+      "source_ref": "Hisnul Muslim section: When starting ablution, entry 12",
+      "source_document": "Hisnul Muslim / Fortress of the Muslim",
+      "category": "Salah/Masjid",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/hisn:12"
+    },
+    {
+      "id": "004e16d31d",
+      "title": "O Allah, forgive my mistakes, my ignorance, my excesses in my affairs, and what You know better than me.",
+      "source_ref": "Muslim # 2719",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:2719"
+    },
+    {
+      "id": "938bdd17e7",
+      "title": "O Allah, I ask You for guidance, piety, chastity and freedom from need",
+      "source_ref": "Muslim # 2721",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:2721"
+    },
+    {
+      "id": "7213b2e037",
+      "title": "O Allah, You created my soul and You will take it.",
+      "source_ref": "Muslim # 2712",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:2712"
+    },
+    {
+      "id": "97d657aa18",
+      "title": "O Allah, forgive me, have mercy on me, and join me with the highest companions",
+      "source_ref": "Bukhaari # 5674",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/bukhari:5674"
+    },
+    {
+      "id": "f2f70e9cab",
+      "title": "O Allah, I seek refuge in Your pleasure from Your displeasure, in Your pardon from Your punishment, and I s...",
+      "source_ref": "Muslim # 486",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:486"
+    },
+    {
+      "id": "281fdd05c2",
+      "title": "O Allah, distance me from my sins as You have distanced the east from the west.",
+      "source_ref": "Bukhaari # 744",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/bukhari:744"
+    },
+    {
+      "id": "cfedc7dd9d",
+      "title": "O Allah, forgive me what I have sent ahead, what I have delayed, what I have hidden, what I have made publi...",
+      "source_ref": "Muslim # 483",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:483"
+    },
+    {
+      "id": "440f41ab48",
+      "title": "O Allah, I have wronged myself greatly, and none forgives sins except You, so forgive me with forgiveness f...",
+      "source_ref": "Bukhaari # 834",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/bukhari:834"
+    },
+    {
+      "id": "015c9e506a",
+      "title": "O Allah, I seek refuge in You from the punishment of Hell, from the punishment of the grave, from the trial...",
+      "source_ref": "Muslim # 590",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/muslim:590"
+    },
+    {
+      "id": "ef5185a9a6",
+      "title": "O Allah, Lord of the heavens, Lord of the earth, and Lord of the mighty Throne; our Lord and Lord of all th...",
+      "source_ref": "Muslim # 2713",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "confidence": "strong",
+      "source_url": "https://sunnah.com/ibnmajah:3873"
+    },
+    {
+      "id": "0b27254ef9",
+      "title": "O Allah, our Lord, to You belongs praise filling the heavens, filling the earth, filling what is between th...",
+      "source_ref": "Muslim # 477",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "confidence": "exact",
+      "source_url": "https://mohaddis.com/View/Muslim/T2/477"
+    }
+  ],
+  "omitted": [
+    {
+      "id": "2a4c5a3c11",
+      "title": "Sayyidul Istighfaar: for istigfaar the most comprehensive dua is the following: O Allah, You are my Rabb, t...",
+      "source_ref": "Bukhaari # 6306",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pending_clean_source",
+      "note": "Arabic omitted pending clean source verification."
+    },
+    {
+      "id": "cdad17d20e",
+      "title": "O Allah, I am Your slave, the son of Your slave the son of Your slave woman, my forelock is in Your control...",
+      "source_ref": "Ibnu Hibbaan # 968",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1d05ca94c4",
+      "title": "O Allah, unite our hearts and put right for us our mutual affairs.",
+      "source_ref": "Abu Dawood # 969",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "4e38001812",
+      "title": "O Allah, make my inner self better than my outer self and make my outer self pious and righteous.",
+      "source_ref": "Tirmizi # 3586",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "77cd7ef6ba",
+      "title": "O Allah, bestow Your special mercy on our Noble Master, Nabi Muhammad ﷺ, (the unlettered Prophet), on his w...",
+      "source_ref": "Abu Dawood Page 141",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "03ce29b8b5",
+      "title": "O Allah, You have satiated us (with food and drink) so make it wholesome for us and You have granted us sus...",
+      "source_ref": "Musannaf ibn Abi Shaybah # 24513",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "79976ae00d",
+      "title": "O Allah, protect me with Islam whilst standing, protect me whilst sitting and protect me whilst sleeping an...",
+      "source_ref": "Mustadrak # 1924",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "89522fdac6",
+      "title": "O The One whom eyes cannot see, minds cannot fully comprehend, admirers cannot praise sufficiently, One who...",
+      "source_ref": "Mu’jamul Awsat # 9448",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "82ead56d38",
+      "title": "O Allah, The One Who brings out the morning and has made the night a time of rest, and the sun and the moon...",
+      "source_ref": "Ibnu Abi Shaybah # 26",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "915c82ceff",
+      "title": "O Allah, the morning has come to me whilst I make You my witness, and the angels that carry Your Throne, an...",
+      "source_ref": "Abu Dawood # 5069",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "da0c3bb6ba",
+      "title": "O Allah, whatever blessings and favours I or any of Your creation have received this morning is exclusively...",
+      "source_ref": "Ibnu Hibbaan # 858",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "0b86f8a5b1",
+      "title": "O Allah, of all the things that are remembered, You are most rightful to be remembered and of all things th...",
+      "source_ref": "Mu’jamul Kabeer # 8027",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9e0fbd8afe",
+      "title": "O Allah, forgive my sins, grant me spaciousness in my home and bless me with barakah (blessings) in my sust...",
+      "source_ref": "Amalul Yawmi Wal Laylah Pg. 35",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3d389e3199",
+      "title": "O Allah, I am hopeful of Your mercy, so do not leave me to myself for the blink of an eye and ease all my a...",
+      "source_ref": "Abu Dawood # 5090",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "20a84ab86b",
+      "title": "O Allah, there is no ease except in that which You have made easy.",
+      "source_ref": "Ibnu Hibbaan # 970",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "8115c30498",
+      "title": "O Allah, the Remover of worry and grief, The One who answers the duas of helpless people, the Giver of merc...",
+      "source_ref": "Mustadrak # 1898",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3b82169cff",
+      "title": "O Allah, Your name is As-Salaam (The Giver of Peace) and peace comes only from You and to You does return.",
+      "source_ref": "Majma’uz Zawaaid #",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d7b7ff00db",
+      "title": "In the name of Allah besides whom there is no Supreme Being. O Allah, relieve me of all worry and grief",
+      "source_ref": "Jaami’us Saghir #6741",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "ddae364237",
+      "title": "O Allah, make me content with what ever You have provided for me and give me barakah (blessings) in it and...",
+      "source_ref": "Mustadrak # 1878",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "72e6bb575a",
+      "title": "O Allah, inspire my heart with thoughts that will be good for my guidance and save me from the evil of my b...",
+      "source_ref": "Tirmizi # 3473",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b1a8fd9723",
+      "title": "O Allah, I ask of You the best of whatever can be asked, the best dua, true success, good deeds, the best r...",
+      "source_ref": "Mustadrak # 1911",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "ce0f46abde",
+      "title": "O Allah, I beg of You for prosperity for myself and for my family members",
+      "source_ref": "Musnad Ahmad # 15327",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "fc2536b734",
+      "title": "O Allah, I beg You for the prosperity of my family members and well-wishers and seek Your protection from t...",
+      "source_ref": "Mu’jamul Kabeer # 4849",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3a747a6100",
+      "title": "O Allah, bless our Noble Master, Muhammad ﷺ and his family with Your special blessings, mercy and grace jus...",
+      "source_ref": "Musnad Ahmad # 22479",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "15487baf8e",
+      "title": "O Allah, I beg of You for aafiyat (safety & ease) in this world and the Hereafter.",
+      "source_ref": "Abu Dawood # 5074",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "fdde3ec67f",
+      "title": "O Allah, our Rabb and the Rabb of all things, I bear witness that You are the Sole Nourisher, You are One a...",
+      "source_ref": "Abu Dawood # 1508",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1943d49fc1",
+      "title": "O Allah, make me patient and make me be grateful to You.",
+      "source_ref": "Majma’uz Zawaaid # 181",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "248e35a132",
+      "title": "O Allah, You have given me a good physical form. So bless me with good manners as well",
+      "source_ref": "Musnad Ahmad # 3813",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "27c234d619",
+      "title": "O Allah, save me from Your punishment on the Day You will resurrect Your servants",
+      "source_ref": "Mu’jamul Awsat # 3206",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cb104bc533",
+      "title": "O Allah, You choose for me what is best for me and then grant it to me",
+      "source_ref": "Tirmizi # 3516",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "249dfb4495",
+      "title": "O Allah, grant us hearts which sigh in admiration for You, which are full of humility towards You and stron...",
+      "source_ref": "Mustadrak # 1957",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "8f89f52dc6",
+      "title": "O Allah, make me one who is extremely grateful to You, remembers You frequently, obeys Your advices and rem...",
+      "source_ref": "Musnad Ahmad # 8040",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "8fa26722f1",
+      "title": "O Allah, make me such that I fear You forever, as if I can see You before me, until the day I meet You.",
+      "source_ref": "Mu’jamul Awsat # 5982",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6d61b873d3",
+      "title": "O Allah, grant me a shining face on the day when the faces of the pious will shine",
+      "source_ref": "Azkaar # 65",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f2d96a0cf8",
+      "title": "O Allah, make us from the successful ones",
+      "source_ref": "Amalul Y.W.L #92",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "af7e5b8e39",
+      "title": "O Allah, bless me with the best of that which You have granted to Your pious servants with",
+      "source_ref": "Al-Mustadrak # 2402",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "149553d20a",
+      "title": "O Allah, punish the unbelievers, fill their hearts with terror, cause a conflict in their planning and brin...",
+      "source_ref": "Musannaf Abdur Razzaak # 4968",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a6f32cd20d",
+      "title": "O Allah, include us among Your selected servants whose hands and feet are shining and they belong to the gr...",
+      "source_ref": "Musnad Ahmad # 16126",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "0c1ec287ff",
+      "title": "O Allah, You have asked us to do things which we are not able to do except with Your help (i.e.",
+      "source_ref": "Jaami’us Sagheer # 1459",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a5d5d6fdd5",
+      "title": "My Rabb is unblemished, Most High and The Most Generous Giver",
+      "source_ref": "Mustadrak # 1835",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6aee0df993",
+      "title": "In the name of Allah whose name wards off the harm of all things in the heavens and the earth and He hears...",
+      "source_ref": "Tirmizi # 3388",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c721bc7b85",
+      "title": "O Allah, put me through an easy reckoning",
+      "source_ref": "Mustadrak # 190",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f143b28177",
+      "title": "O Allah, help me in remembering You, being grateful to You and worshipping You well",
+      "source_ref": "Abu Dawood # 1522",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "59fdf644e9",
+      "title": "O Allah, grant me Your love as well as the love of those people whose love will be beneficial to me by You.",
+      "source_ref": "Tirmizi # 3491",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "5a7d7edb40",
+      "title": "O Controller of hearts, let my heart hold fast onto Your religion",
+      "source_ref": "Tirmizi # 2140",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "543d57d774",
+      "title": "O The Master of Islam and The Master of the followers of Islam, keep me firm on Islam until I meet You",
+      "source_ref": "Mu’jamul Awsat # 661",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "951698c912",
+      "title": "O Allah, open up the pores of my heart for Your remembrance, grant me the ability to be obedient to You and...",
+      "source_ref": "Mu’jamul Awsat # 1286",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cb7b73a477",
+      "title": "O Allah, I have taken a promise with You which You would never violate.",
+      "source_ref": "Musnad Ahmad # 8053",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "959e64526a",
+      "title": "O Allah, I beg of You for a heart which is at peace with You, which believes in meeting You, is pleased wit...",
+      "source_ref": "Mu’jamul Kabeer # 749",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "0e6a92a085",
+      "title": "O Allah, bestow Your special mercy, blessings and grace on the leader of all the Messengers, leader of the...",
+      "source_ref": "Ibnu Majah # 906",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "20cc6fb4b7",
+      "title": "We are pleased with Allah as our Rabb, Islam as our religion and Hadhrat Muhammad ﷺ as our Rasul and Messenger",
+      "source_ref": "Abu Dawood # 5072",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c9e952d29a",
+      "title": "O Allah, bless me with taqwa (Your fear) and purify my soul as You are the Best Purifier.",
+      "source_ref": "Musnad Ahmad # 25229",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2b79ab309b",
+      "title": "O Allah, I beg You for beneficial knowledge, abundant sustenance and cure from all illnesses",
+      "source_ref": "Mustadrak # 1739",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "39d1c4ebcd",
+      "title": "There is no deity besides Allah, The Most Tolerant and generous, who is free from any fault and The Rabb of...",
+      "source_ref": "Tirmizi # 479",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f4a04a8022",
+      "title": "O Allah, You hear my speech and You can see my position (where I am), You know what I conceal and what I re...",
+      "source_ref": "Mu’jamus Sagheer # 696",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "10494449ac",
+      "title": "O Allah, grant me aafiyat (sound health) in my body, my hearing and my eye-sight.",
+      "source_ref": "Abu Dawood # 5090",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a41921f4eb",
+      "title": "O Allah, I beg of You to bless me with Imaan which does not waver, bounties which never terminate and the c...",
+      "source_ref": "Mustadrak # 1928",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "5662c80224",
+      "title": "O Allah, I beg of You a pure and honourable life, an easy death and a place of ultimate return (hereafter)...",
+      "source_ref": "Mustadrak # 1986",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "fe0edc939d",
+      "title": "O Allah, allow me to live as a humble person, cause me to die as a humble person and raise me (on the Day o...",
+      "source_ref": "Ibn Maajah # 4126",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9c5c2b7e00",
+      "title": "O Allah! Give me my book of deeds in my right hand",
+      "source_ref": "Azkaar # 65",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "22c879a82a",
+      "title": "O Allah, bless me at the time of my death and (bless me) in what follows after death.",
+      "source_ref": "Mu’jamul Awsat #7676",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2a4c2d675c",
+      "title": "O Allah, make death beloved to all those who believe that our Nabi Muhammad ﷺ is Your Messenger",
+      "source_ref": "Jaami’us Sagheer # 1474",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d66466275e",
+      "title": "O Allah, please help me during the pangs and pains of death",
+      "source_ref": "Tirmizi # 978",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1109294357",
+      "title": "O Allah, grant him (Nabi Muhammad ﷺ) a place of nearness to You in Your Court on the Day of Judgement",
+      "source_ref": "Musnad Ahmad #16543",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f1c2a8d50a",
+      "title": "O Allah, I seek Your protection from useless knowledge, and from a heart which does not fear You, from a du...",
+      "source_ref": "Mustadrak # 1957",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2b15cd68f5",
+      "title": "O Allah, grant us Your fear in such a way that it becomes a barrier between us and committing sins.",
+      "source_ref": "Tirmizi # 3502",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "e4362be606",
+      "title": "O Allah, allow me to take benefit from my knowledge, teach me what will be useful to me and increase me in...",
+      "source_ref": "Tirmizi # 3599",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "97f73c3bfc",
+      "title": "O Allah, forgive us and all the believing men and women, all the Muslim men and women.",
+      "source_ref": "Musannaf Abdur Razzaaq # 4968",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "010b0e41c6",
+      "title": "Allah Ta’ala is absolutely pure and all praises are due to Him.",
+      "source_ref": "Abu Dawood # 5075",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "652c6d0649",
+      "title": "There is no deity besides You. You have no partner.",
+      "source_ref": "Abu Dawood # 5061",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "50a2d15333",
+      "title": "O The Everlasting and The Sustainer, persistently do I beg Your mercy",
+      "source_ref": "Tirmizi # 3524",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "43a250910a",
+      "title": "O Allah, I beg of You Your Grace and Your Mercy as none possesses it besides You",
+      "source_ref": "Mu’jamul Kabeer # 10379",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "892e723df3",
+      "title": "O Allah, make us submissive and obedient to Your commands and make us sincere friends and pleasant companions.",
+      "source_ref": "Musannaf Ibn Abi Shaybah # 3",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9ecf7ceded",
+      "title": "O, The Most Merciful of those who show mercy",
+      "source_ref": "Mustadrak # 1995",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a6e3c3c4bd",
+      "title": "O Allah, The Everlasting The Sustainer, I passionately beg Your mercy.",
+      "source_ref": "Mustadrak # 2000",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d162fe7a1a",
+      "title": "O Allah, punish the disbelievers and the people of the book, the polytheists, those who reject Your verses,...",
+      "source_ref": "Raudhatul Muhaddiseen # 292",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Oppression and Help",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "47314ec078",
+      "title": "O Allah, all praise is due to You with gratefulness and all kindness is due to You with grace",
+      "source_ref": "Mu’jamul Kabeer # 316",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "499886e8c6",
+      "title": "O Allah, all praise and gratitude is for You, the entire kingdom and creation belong to You.",
+      "source_ref": "Musnad Ahmad # 396",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "bf0e51ccf1",
+      "title": "O Allah, all praise is due to You, and before You do I present my complaints.",
+      "source_ref": "Mu’jamul Awsat # 17427",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "24e90a2dfd",
+      "title": "The greatest name (Ism-e-A’zam) of Allah, which when invoked surely leads to the acceptance of dua and one...",
+      "source_ref": "Mustadrak # 1865",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "ef2896551c",
+      "title": "O Allah, I beg of You by saying that I bear witness that verily You are Allah.",
+      "source_ref": "Tirmizi # 5743",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f968829f76",
+      "title": "O Allah, I beg of You by saying that all praise is for You.",
+      "source_ref": "Ibnu Hibbaan # 890",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9acf6bcfc5",
+      "title": "O Allah, expand my chest and make my work easy for me.",
+      "source_ref": "Musannaf ibn Abi Shaybah # 15135",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "ebfd11997b",
+      "title": "O Allah, You are the strength of my arms and my True Helper.",
+      "source_ref": "Abu Dawood # 2632",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cbefb4acae",
+      "title": "O Allah, we place You in front of us when fighting them and seek Your protection against their evil plots",
+      "source_ref": "Abu Dawood # 1537",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "4953558427",
+      "title": "O Allah, the Cherisher of the heavens and the earth, The Knower of the unseen and the visible, I firmly dec...",
+      "source_ref": "Musnad Ahmad # 3906",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cb08c4ac19",
+      "title": "O Allah, I seek Your protection from the evil of my ears, and the evil of my eyes, my tongue, my heart and...",
+      "source_ref": "Tirmizi # 3492",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1f9a2daab2",
+      "title": "O Allah, I seek Your protection from being buried under the debris of a building and I seek Your protection...",
+      "source_ref": "Abu Dawood # 1552",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6cbef281cd",
+      "title": "O Allah, I seek Your protection from an evil day, and an evil night, an evil hour, an evil companion and a...",
+      "source_ref": "Mu’jamul Kabeer # 810",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c8f5c5ef26",
+      "title": "O Allah, I seek Your protection from causing disunity, from hypocrisy and from bad manners",
+      "source_ref": "Abu Dawood 1546",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "72c1458542",
+      "title": "O Allah, grant us the best possible results in all things of our life and and save us from disgrace in this...",
+      "source_ref": "Mustadrak # 6508",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "e525b88511",
+      "title": "O Allah, I beg You to please bless me with good though it is without any preceding means and I seek Your pr...",
+      "source_ref": "Musnad Abi Ya’laa # 3371",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "65df07d5a1",
+      "title": "O Allah, guard my private parts and make my work easy for me",
+      "source_ref": "T. Muhtaaj # 89",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a018ded361",
+      "title": "O Allah, I seek Your protection from the devil and his troops",
+      "source_ref": "Amalul Youmi wa Lailah # 92",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a06a2b2e6e",
+      "title": "O Allah, I seek Your protection that You should turn Your face away from me on the Day of Judgement.",
+      "source_ref": "Mu’jamul Kabir # 7048",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "0a8afb82db",
+      "title": "O Allah, I seek Your protection from narrowness (distress) in this world and on the Day of Judgement",
+      "source_ref": "Abu Dawood # 5085",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3a63ba645b",
+      "title": "O The One who is the light of the heavens and the earth.",
+      "source_ref": "Majma’uz Zawaaid # 10: 179",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9db47b87a4",
+      "title": "O Allah, save me from the evil of my carnal desires and give me the courage to discharge my responsibilitie...",
+      "source_ref": "Musnad Ahmad # 1949",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "557c0308ee",
+      "title": "O Allah, turn my heart towards Your Deen and guard us from behind through Your Mercy",
+      "source_ref": "Musnad Abi Ya’la # 3485",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "139ad955b7",
+      "title": "I seek refuge with the perfect words of Allah against the evil of what was created",
+      "source_ref": "Tirmizi # 3437",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2d1d95c8d4",
+      "title": "O Allah, the Creator of the heavens and the earth, who knows what is concealed and visible, the Rabb and Ma...",
+      "source_ref": "Abu Dawood # 5067",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "da5ea9ea3c",
+      "title": "O Allah, The Rabb of the seven heavens and whatever it has over shadowed, And the Rabb of the earths and wh...",
+      "source_ref": "Targeeb wa Tarheeb # 5 (Vol. 2 Pg. 457)",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "dda0b9bf37",
+      "title": "O Allah, The Rabb of Jibraeel (alayhis salaam), Mikaeel (alayhis salaam), Israfeel (alayhis salaam) and Muh...",
+      "source_ref": "Mustadrak # 6610",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "8ba568bdb3",
+      "title": "O Allah, I seek Your protection from being misled or that I should be misled by others and from slipping or...",
+      "source_ref": "Abu Dawood # 5094",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "dc30850dbc",
+      "title": "O Allah, save me from the accursed shaytaan",
+      "source_ref": "Ibnu Maajah # 773",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a8eb0d9ef5",
+      "title": "O Allah, I beg of You Your special mercy by which You would guide my heart, consolidate my affairs, straigh...",
+      "source_ref": "Tirmizi # 3419",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Salah/Masjid",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c661e1f31f",
+      "title": "O Allah, Your praises are like how You have expressed it and much more than what we can ever express.",
+      "source_ref": "Tirmizi # 3520",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Salah/Masjid",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b23814063d",
+      "title": "O Allah, I beg of You to grant me perfection in wudhu and perfection in salaah and your complete pleasure (...",
+      "source_ref": "M. Haaris # 469",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Salah/Masjid",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "25045fc46c",
+      "title": "O Allah! We seek Your help and we seek forgiveness from You and we seek Your guidance.",
+      "source_ref": "Darul Mansoor # 722",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Salah/Masjid",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "5ca1d6cdd1",
+      "title": "O Allah, forgive me and have mercy on me. Verily You are the most dignified and honoured",
+      "source_ref": "Musannaf ibn Abi Shaybah # 15565",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "38a95df384",
+      "title": "O Allah guide me with (divine) guidance, cleanse me with taqwa (piety) and forgive me in this life and the...",
+      "source_ref": "Musannaf ibn Abi Shaybah # 14704",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "42d514a25e",
+      "title": "O Allah, I make taubah (repent) before You from all sins and I promise never to return to them ever",
+      "source_ref": "Mustadrak # 1899",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b57c9cd095",
+      "title": "O Allah, Your forgiveness is much more vast than my sins, and I am much more hopeful of Your Mercy than my...",
+      "source_ref": "Mustadrak # 1994",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a9ad18ae89",
+      "title": "I beg forgiveness from Allah, The Being besides whom there is no deity.",
+      "source_ref": "Abu Dawood # 1517",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "051098d9af",
+      "title": "O Allah, forgive us, have mercy on us, be pleased with us, accept our actions, admit us in to Jannah, save...",
+      "source_ref": "Ibnu Majah # 3836",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "696f41ef00",
+      "title": "O Allah, I beg of You steadfastness in all my affairs, determination to follow the path of virtue, gratitud...",
+      "source_ref": "Tirmizi # 3407",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c87a4f04e5",
+      "title": "O Allah, forgive me, have mercy on me and admit me into Jannah",
+      "source_ref": "Mu’jamul Kabeer # 667",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "75879214a1",
+      "title": "O The One who has publicised my good actions but concealed my sins.",
+      "source_ref": "Mustadrak # 1998",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b5c29d0e04",
+      "title": "O My Rabb, forgive me, have mercy on me, guide me to the straight path",
+      "source_ref": "Musnad Ahmad # 26145",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b2949fed8f",
+      "title": "O Allah, the Rabb of Nabi Muhammad ﷺ, forgive my sins, quench the fire (of anger) in my heart, save me from...",
+      "source_ref": "Musnad Ahmad # 26036",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "91a82f8e60",
+      "title": "O Allah, make me from those who when they do good deeds they rejoice and when they do wrong they ask for fo...",
+      "source_ref": "Ibn Maajah # 3820",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6922d730de",
+      "title": "O Allah, You are not a deity who was made by us, nor a Rabb who we made, nor a Rabb whose remembrance will...",
+      "source_ref": "Mustadrak # 5708",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d75d76a59c",
+      "title": "O Allah, be kind to me by making every difficulty easy for me as it is absolutely easy for You to do so.",
+      "source_ref": "Mu’jamul Awsat # 1250",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c757277c86",
+      "title": "O, Allah, forgive me as You are Most Kind and most Forgiving",
+      "source_ref": "Mu’jamul Awsat # 7746",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b2154c295b",
+      "title": "O Allah, forgive me, have mercy on me, accept my taubah (repentance), Verily You are Most Forgiving and Mos...",
+      "source_ref": "Musnad Ahmad # 5331",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f186c01637",
+      "title": "O Allah, You know well what I conceal and what I reveal so please accept my repentance.",
+      "source_ref": "Mu’jamul Awsat # 5974",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "0351e1467a",
+      "title": "O Allah, I am present, I am present and ready to obey You.",
+      "source_ref": "Mustadrak # 1900",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "7439f2c8db",
+      "title": "O Allah, I beg of You that I be blessed with perfect Imaan, such Imaan which is accompanied by good manners...",
+      "source_ref": "Mu’jamul Awsat # 9333",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f25ce6e2c1",
+      "title": "O Allah, make me from those who repent and make me from those who observe cleanliness",
+      "source_ref": "Tirmizi # 55",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "29bf655c7b",
+      "title": "O Allah, guide me along with those whom you have guided, grant me ease along with those whom you have grant...",
+      "source_ref": "Abu Dawood # 1425",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "e56497d919",
+      "title": "O Allah, forgive me and all the believing men and women, all the Muslim men and women, unite their hearts,...",
+      "source_ref": "Sunanul Kubraa lil Bayhaqi # 3143",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c2adafcb04",
+      "title": "O Allah, I beg You for all kinds of good, that which I know and that which I do not know.",
+      "source_ref": "Musannaf ibn Abi Shaybah # 3025",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "463d702537",
+      "title": "O Allah, I beg You for Halaal (pure) sustenance, beneficial knowledge and deeds that are accepted",
+      "source_ref": "Mu’jamus Sagheer # 152",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1cc046768c",
+      "title": "O Allah, all praise is due to You. None can restrict what You expand and none can expand what You have rest...",
+      "source_ref": "Mustadrak # 4308",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "30c9b2c260",
+      "title": "O Allah, provide me with halaal rizq (sustenance) that is sufficient to fulfil my needs rather than haraam...",
+      "source_ref": "Tirmizi # 3563",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "7583d4b3d4",
+      "title": "O Allah! Forgive my sins and accept my repentance.",
+      "source_ref": "Abu Dawood # 1516",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "daa97456f9",
+      "title": "O Allah, by Your knowledge of the unseen and the power which You have over Your creation, and keep me alive...",
+      "source_ref": "Nasa-ee # 1307",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "8fa7544c55",
+      "title": "O Allah, I am weak, grant me strength in this weakness of mine in seeking Your pleasure.",
+      "source_ref": "Mustadrak # 1931",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3dcfd322bf",
+      "title": "O Allah, make my rizq (sustenance) the most abundant during my old age and at the last portion of my life",
+      "source_ref": "Mustadrak # 1987",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "428f4d394f",
+      "title": "O Allah, I beg of You to bless me with beneficial knowledge, deeds that are accepted, and pure, well-earned...",
+      "source_ref": "Musnad Ahmad # 2616",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "5d47a9c1f9",
+      "title": "O Allah, I seek Your forgiveness for my sins and I beg You to guide me To the ways of achieving success in...",
+      "source_ref": "Musannaf ibn Abi Shaybah # 29268",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3ddc651592",
+      "title": "O Allah, I seek Your protection from poverty and from becoming a pauper",
+      "source_ref": "Mu’jamus Sahaaba # 1559",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "37a701ce45",
+      "title": "O Allah, I seek Your protection from being overpowered by debt, being overpowered by an enemy, from a widow...",
+      "source_ref": "Mu’jamul Awsat # 2142",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "5d4b2bf720",
+      "title": "O Allah, I seek Your protection from all such actions that will bring disgrace upon me, from friends who ma...",
+      "source_ref": "Majma’uz Zawaahid # 110",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "83aa62d5f3",
+      "title": "O Allah, I beg of You through Your Messenger, Muhammad Your friend Ibraaheem (alayhis salaam), Musa (alayhi...",
+      "source_ref": "of Musa (alayhis salaam), the Injeel of Isa (alayhis salaam), the Zaboor of Dawood",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6908b55855",
+      "title": "O Allah, by Your Magnificent Countenance and Your Great Name I seek Your protection from kufr (disbelief) a...",
+      "source_ref": "Jaami’us Sageer # 1542",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2d9ef20879",
+      "title": "Rasulullah ﷺ has said: “There are 99 names of Allah.",
+      "source_ref": "Tirmizi # 3507",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "43585eb98f",
+      "title": "O Allah, I seek Your protection from worry and grief, I seek Your protection from weakness and laziness, fr...",
+      "source_ref": "Abu Dawood # 1555",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "0c3a89d456",
+      "title": "O Allah, I beg of You through Your Noble countenance and Your perfect words for Your protection from the ev...",
+      "source_ref": "Abu Dawood # 5052",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b8c2f34152",
+      "title": "O Allah, forgive me, have mercy on me, grant me peace, guide me, grant me sustenance, take care of my needs...",
+      "source_ref": "Abu Dawood # 850",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "da6be44093",
+      "title": "O Allah, open the gates of Your mercy for us and make easy for us the doors of Your sustenance",
+      "source_ref": "Ibnu Maajah # 772",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "057ff5a6eb",
+      "title": "O Allah, I am Your servant and the son of Your servant, the son of Your bondswoman.",
+      "source_ref": "Tanzeehussh Shari’ah # 76",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "71b1280c97",
+      "title": "O Allah, take care of me through Your eyes which never sleep, embrace me with Your strength from which no o...",
+      "source_ref": "Kanzul Ummaal # 3441",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b2f9142fd7",
+      "title": "O Allah, I seek Your protection from a wife who makes me old before my time, from children who become a nui...",
+      "source_ref": "Musnad Al-Firdaus # 5974",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6c4e523c55",
+      "title": "Verily, Allah Ta’ala and His angels send durood upon the Messenger ﷺ.",
+      "source_ref": "Al Qawlul Badee Page 12",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "e1b7644985",
+      "title": "O Allah, grant our Noble Master Muhammad ﷺ the greatest excellence and the highest rank and honour in Your...",
+      "source_ref": "and grant an excellent reward to all the Ambiyaa",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "75ab22504c",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ, his family, companions, children, inmate...",
+      "source_ref": "Al Qawlul Badee Page 122",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9d2ef38de1",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ and his progeny from the first to the las...",
+      "source_ref": "Al Qawlul Badee Page 124",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "8bdbfd0813",
+      "title": "O Allah bestow Your special mercy on him",
+      "source_ref": "superiority over all the Ambiyaa (A.S) that preceded him.",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Children",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "015c66bfc7",
+      "title": "O Allah, I beg of You through the past favours which You have blessed me with and through the good tests wh...",
+      "source_ref": "Kanzul Ummaal # 3784",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Daily Adhkar",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a21a8586a3",
+      "title": "O Allah, bestow Your special mercy on our Noble Master, Muhammad ﷺ and raise him to the position of Waseela...",
+      "source_ref": "Al Qawlul Badee Page 106",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "dd41d4ca4c",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ, the Prophet, as many times as those amon...",
+      "source_ref": "Kanzul Ummaal # 3981",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "02e9aebf70",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ to the extent of Your unlimited mercy and...",
+      "source_ref": "Kanzul Ummaal # 4004",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6a9dfae63c",
+      "title": "O Allah, bestow Your special mercy on the soul of our Noble Master Muhammad ﷺ among all human souls, Bestow...",
+      "source_ref": "Al Qawlul Badee Page 12",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "13fb76715b",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ in quantities equal to this world and the...",
+      "source_ref": "Al Qawlul Badee Page 122",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "13b69440ee",
+      "title": "O Allah, bestow Your special mercy on our Noble Master, Nabi Muhammad ﷺ, Your bondsman and messenger, and b...",
+      "source_ref": "Al Qawlul Badee Page 269",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3ceef6221a",
+      "title": "O Allah, bestow Your special mercy on our Noble Master, Nabi Muhammad ﷺ whenever people remember and mentio...",
+      "source_ref": "Al Qawlul Badee Page # 466",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "4aebc6a0df",
+      "title": "O Allah, bestow Your special mercy on our Noble Master, Nabi Muhammad ﷺ Your servant, messenger and the unl...",
+      "source_ref": "Reference not clearly extracted from PDF",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Durood/Salawat",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cb6651272e",
+      "title": "O Allah, I beg of You the hastening of ease and comfort upon me, the removal of afflictions and leaving thi...",
+      "source_ref": "Kanzul Ummaal # 3698",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b5ed1e026c",
+      "title": "O The One who suffices (us) from everyone else and the One from whom none can be self-sufficient.",
+      "source_ref": "Kanzul Ummaal # 3425",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "de15af56f6",
+      "title": "O Allah, change the stray thoughts of my heart into fear for You and remembrance of You, and O Allah divert...",
+      "source_ref": "Musnad al-Firdaus # 474",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d2afe45085",
+      "title": "O Allah, I beg of You to bless me with complete favours in all matters and I beg You to allow me to be grat...",
+      "source_ref": "Kanzul Ummaal # 5034",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Ease and Relief",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6853157e01",
+      "title": "O Allah, forgive me and my brother and admit us into Your mercy. You are The Most Merciful",
+      "source_ref": "A’araaf # 151",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "76ebac789a",
+      "title": "O Allah, all praises are due to You in Your tests and doings with Your creation.",
+      "source_ref": "Kanzul Ummaal # 5100",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3857b316fa",
+      "title": "Allah is The Greatest, Allah is The Greatest, Allah is The Greatet.",
+      "source_ref": "Kanzul Ummaal # 3850",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "871ea8d398",
+      "title": "O Allah, be kind to our Noble Master, Nabi Muhammad ﷺ and the family of our Noble Master, Nabi Muhammad ﷺ j...",
+      "source_ref": "Kanzul Ummaal # 3991",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "970464cfe8",
+      "title": "O Allah, I beg You, O Allah, the Compassionate, the Merciful, the Giver of protection to those who seek it,...",
+      "source_ref": "Al Qawlul Badee Page 123",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1a2df4ba6d",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ and his family as much as You would love...",
+      "source_ref": "Al Qawlul Badee Page 125",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "4413207777",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ and his family, a mercy which pleases You...",
+      "source_ref": "Al Qawlul Badee Page 125",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1ad3db3d8d",
+      "title": "O Allah, bestow Your special mercy on our Noble Master Muhammad ﷺ among the first to come.",
+      "source_ref": "Al Qawlul Badee Page 127",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "40a3282c57",
+      "title": "O Allah, bless our Noble Master, Nabi Muhammad ﷺ who, with his noor, turned darkness into light.",
+      "source_ref": "Al Qawlul Badee Page 129",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1a97667cb5",
+      "title": "O Allah, bestow Your special mercy on our Noble Master, Nabi Muhammad ﷺ whose noor (light) preceded the ent...",
+      "source_ref": "Al Qawlul Badee Page 130",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "645f9d55e4",
+      "title": "O Allah, bless our Noble Master, Nabi Muhammad ﷺ and his family.",
+      "source_ref": "Al Qawlul Badee Page 272",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "8366016ddd",
+      "title": "O Allah, bestow Your special mercy on our Noble Master, Nabi Muhammad ﷺ, Your servant, Your messenger, And...",
+      "source_ref": "Al Qawlul Badee Page 378",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Family",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "53abf04201",
+      "title": "O Allah, do not entrust me to my self for the blinking of an eye and do not snatch away any good which You...",
+      "source_ref": "Kanzul Ummaal # 3674",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "7d41bdf4f2",
+      "title": "O Allah, I beg of You the ability to perform deeds which are pleasing to You, true reliance on You and I as...",
+      "source_ref": "Kanzul Ummaal # 3654",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b07470ae91",
+      "title": "O Allah, save me and others from such a time where people will refuse to follow the learned Ulama and have...",
+      "source_ref": "Kanzul Ummaal # 3686",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f6380c8894",
+      "title": "O Allah, judge between us and our people with justice and You are the Best of judges",
+      "source_ref": "A’araaf # 23",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2c07633779",
+      "title": "O The Comforter and Companion of every lonely person, O The One who is near and never far, O The One who is...",
+      "source_ref": "Kanzul Ummaal # 5103",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "93acd43b75",
+      "title": "O Allah, The Rabb of the seven heavens and The Rabb of the Great Throne (Arsh).",
+      "source_ref": "Kanzul Ummaal # 3433",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "5c8e8867c1",
+      "title": "O Allah, grant our Noble Master Muhammad ﷺ a suitable reward on our behalf",
+      "source_ref": "Kanzul Ummaal # 3900",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "General Dua",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3a434bbd1d",
+      "title": "O Allah, I beg of You to bless me with such Imaan which penetrates my heart And a strong conviction so that...",
+      "source_ref": "Kanzul Ummaal # 3657",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9ab0cb4b56",
+      "title": "O Allah, our hearts, foreheads and limbs are in Your control.",
+      "source_ref": "Kanzul Ummaal # 3644",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a049da1c5e",
+      "title": "O Allah, make Your love the most beloved of things to me and make Your fear the most fearful of things to me.",
+      "source_ref": "Kanzul Ummaal # 3648",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "93912505d3",
+      "title": "O Allah, cleanse my heart from hypocrisy, my actions from show, my tongue from lies, my eyes from deception.",
+      "source_ref": "Kanzul Ummaal # 3660",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "ea966e4604",
+      "title": "O Allah, grant me such eyes which tear profusely and thereby water the heart with flowing tears out of Your...",
+      "source_ref": "Kanzul Ummaal # 3661",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cce790dc2f",
+      "title": "O Allah, keep my feet firm on that Day when the feet will begin to slip",
+      "source_ref": "Kanzul U #26987",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "57cda1524e",
+      "title": "O Allah, Bless Nabi Muhammad ﷺ with the position of Waseelah (a special position of intercession), instil h...",
+      "source_ref": "Kanzul Ummaal # 3479",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2560d06c75",
+      "title": "O Allah, grant me Your special guidance, pour Your grace upon me, shower me with Your mercy and favour me w...",
+      "source_ref": "Kanzul Ummaal # 352",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c63ac5a7d1",
+      "title": "O Allah, make me from amongst those who placed their trust in You and then found You to be sufficient.",
+      "source_ref": "Kanzul Ummaal # 5106",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c3d8037ed9",
+      "title": "O Allah, bless me with the taufeeq (ability) to do all such words, deeds, actions, intentions and acts of g...",
+      "source_ref": "Kanzul Ummaal # 3797",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Guidance and Imaan",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d7c347f717",
+      "title": "O Allah, I seek Your protection from bad manners, evil actions, evil desires and dreadful diseases.",
+      "source_ref": "Kanzul Ummaal # 3671",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hajj/Travel",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d638bde068",
+      "title": "Our Rabb, You created and perfected all creation.",
+      "source_ref": "Kanzul Ummaal # 3855",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hajj/Travel",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3516aa5e3f",
+      "title": "O Allah, I beg of You good health, chastity, trustworthiness, good manners and to be happy with Your decree",
+      "source_ref": "Kanzul Ummaal # 3650",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "343b66b2bb",
+      "title": "O Allah, enrich me with knowledge, beautify me with tolerance, honour me with piety and beautify me with go...",
+      "source_ref": "Kanzul Ummaal # 3663",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cf9cbbb351",
+      "title": "O Allah, O The Greatest, O The One who hears and sees all things, O The One who has no partner and no minis...",
+      "source_ref": "Tanzeehush Sharee’atil Marfoo’ah # 330",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c29dfd8fff",
+      "title": "O Allah, I beg of You (to bless me with) Imaan which remains forever, and I ask You for a submissive heart...",
+      "source_ref": "Kanzul Ummaal # 5055",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Health and Aafiyah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "282ad0fb07",
+      "title": "O Allah, do not cause us to die a sudden death, nor seize us by surprise nor make us unmindful of any duty...",
+      "source_ref": "Jam’ul Fawaaid # 108",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "e7bd8e171d",
+      "title": "O Allah, make me feel comfortable in the loneliness of the grave",
+      "source_ref": "Kanzul Ummaal # 2781",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "ba119ec1d3",
+      "title": "O Allah, infuse patience in us and cause us to die as Muslims",
+      "source_ref": "A’araaf # 126",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "37f345df6f",
+      "title": "O Allah, do not make us fearless of Your secret planning, let not Your remembrance die out from our hearts,...",
+      "source_ref": "Musnadul Firdaus # 2017",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c1b0f09dfb",
+      "title": "Allah is enough for me for my Deen. Allah is enough for me whenever I am worried Allah is enough for when I...",
+      "source_ref": "Kanzul Ummaal # 3558",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "edc973334c",
+      "title": "O Allah, I ask of You to bless me with the reward of the Shaakireen (Those who are grateful to You), the re...",
+      "source_ref": "company of the Ambiyaa, the yaqeen (conviction)",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cc6a7da652",
+      "title": "O Allah, do not place upon me the favour of an immoral person whom I may have to pay him back in this world...",
+      "source_ref": "Kanzul Ummaal # 3810",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "21f710fadc",
+      "title": "O Allah, I make You a witness to what You have already bore testimony to, regarding Yourself.",
+      "source_ref": "Kanzul Ummaal # 4966",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "207f29761c",
+      "title": "O Allah, accept the intercession of our Noble Master Muhammad ﷺ which is most weighty, raise him to the hig...",
+      "source_ref": "Al Qawlul Badee Page 122",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Hereafter",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b9b5f40981",
+      "title": "O Allah, have mercy on me through the blessings of the Holy Qur-aan and make it a guide for me, a source of...",
+      "source_ref": "Reference not clearly extracted from PDF",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a0b7a13714",
+      "title": "O Allah, I beg of You for Imaan that is unshakable, correct guidance and beneficial knowledge",
+      "source_ref": "Kanzul Ummaal # 3789",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Knowledge",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "aac9bbe0ab",
+      "title": "O Allah, cover me with Your mercy and save me from Your punishment",
+      "source_ref": "Kanzul U #26985",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "9820f7237d",
+      "title": "O Allah, open up the locks of our hearts with Your remembrance, complete Your favour upon us, pour Your gra...",
+      "source_ref": "Kanzul U #20990",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c5a7183639",
+      "title": "O Allah, we beg You by the rights which beggars have over You and verily beggars do have rights over You.",
+      "source_ref": "Kanzul Ummaal # 4977",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "32766dc69c",
+      "title": "In the name of Allah, the most Compassionate the most Merciful",
+      "source_ref": "Reference not clearly extracted from PDF",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Mercy and Acceptance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "28c60b0485",
+      "title": "O Allah, do not make us among those who commit oppression",
+      "source_ref": "A’araaf # 47",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Oppression and Help",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "30eb2879f9",
+      "title": "O Allah, You alone are worthy of such praise which remains eternal with Your eternity.",
+      "source_ref": "Kanzul Ummaal # 3854",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "7084a50e89",
+      "title": "Allah Ta’ala has declared: “And for Allah are beautiful names so call Him by the same.”",
+      "source_ref": "A’araaf # 180",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Praising Allah",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a14db6a69c",
+      "title": "O Allah, I seek Your protection from the evil of what I know and the evil of what I do not know",
+      "source_ref": "Ihyaa Pg. 291",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "d79e5a4fa8",
+      "title": "O Allah, I complain only to You to fulfil my needs of my weakness; that I do not have the resources and tha...",
+      "source_ref": "Kanzul Ummaal # 3613",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c0e81aa621",
+      "title": "O Allah, grant me protection like the protection given to a new born baby",
+      "source_ref": "Kanzul Ummaal # 3678",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1c31faa439",
+      "title": "O Allah, I seek Your protection from the evil of the two blind things, the mountain floods and the onslaugh...",
+      "source_ref": "Kanzul Ummaal # 3649",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6d2a7267da",
+      "title": "O Allah, protect me by Your power and admit me into Your mercy, make me devote my life to worshipping You,...",
+      "source_ref": "Kanzul Ummaal # 3662",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f2a9bc7200",
+      "title": "O Allah, I seek Your protection from a cunning friend who is constantly monitoring me with his eyes and obs...",
+      "source_ref": "Kanzul Ummaal # 3666",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "caf81cb095",
+      "title": "O Allah, I seek Your protection from the temptation of women and the punishment in the grave",
+      "source_ref": "Kanzul Ummaal # 36",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "02ec738de0",
+      "title": "I beg of You for all kinds of goodness and I also beg to be saved from all kinds of evil",
+      "source_ref": "Kanzul Ummaal # 22546",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "4a36c495de",
+      "title": "I begin with the name of Allah who is full of grandeur, sound arguments and overpowering might.",
+      "source_ref": "Kanzul Ummaal # 17",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "b9aa54c242",
+      "title": "O Allah, I seek Your protection from death in a state of worry And I seek your protection from death in a s...",
+      "source_ref": "Kanzul Ummaal # 3775",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "0eed2149ae",
+      "title": "O Allah, I seek Your protection from the evil of those (animals) which crawl on their bellies, those animal...",
+      "source_ref": "Kanzul Ummaal # 379",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "fda21c93ec",
+      "title": "O Allah, keep me firm lest I should slip (from the right path) and continue to guide me lest I should be mi...",
+      "source_ref": "Reference not clearly extracted from PDF",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "84f17fe466",
+      "title": "O Allah, make me beloved to You, place in my heart submission towards You and grant me honour in the eyes o...",
+      "source_ref": "Kanzul Ummaal # 5087",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "84c23da3da",
+      "title": "O Allah, I seek Your protection from having doubts in the truth after being convinced.",
+      "source_ref": "Kanzul Ummaal # 3817",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "f1c7080114",
+      "title": "O Allah, You are the Mighty Rabb. Nothing created by You can encompass You.",
+      "source_ref": "Kanzul Ummaal # 3782",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c60401a76e",
+      "title": "O Allah, I seek Your protection from sudden death, from being bitten by a snake, or being attacked by a bea...",
+      "source_ref": "Kanzul Ummaal # 3786",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "33e388b1c0",
+      "title": "I seek protection in Allah from shaytaan the accursed",
+      "source_ref": "Reference not clearly extracted from PDF",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Protection",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "713010b4ff",
+      "title": "You are our guardian, forgive us and have mercy on us and You are the Best of forgivers.",
+      "source_ref": "A’araaf # 155, 156",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "7cca5b999c",
+      "title": "You are absolutely pure and sublime, there is no deity besides You, forgive my sins and correct my actions.",
+      "source_ref": "Jam’ul Fawaaid # 1536",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "6c91dce5dc",
+      "title": "O Allah, I turn towards You while praising You and confessing my sins.",
+      "source_ref": "Akhbaar. A # 446",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "cca589bee5",
+      "title": "O Allah, we have wronged ourselves and if You do not forgive us and have mercy on us we shall certainly be...",
+      "source_ref": "A’araaf # 23",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "7b20117133",
+      "title": "O Allah, I ask of you to grant me taufeeq (ability) like that of the people of guidance, actions like that...",
+      "source_ref": "Musnad Firdaus # 1841",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c61bd8a8a3",
+      "title": "O Allah, I seek Your protection from joining any partners with You knowingly and I beg Your forgiveness for...",
+      "source_ref": "Reference not clearly extracted from PDF",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "5ed82dcd73",
+      "title": "O Allah, I beg Your forgiveness for sins which I have committed after having repented for them.",
+      "source_ref": "Kanzul Ummaal# 5124",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3c26b22d0a",
+      "title": "O Allah, all praise is for You and You are the Sustainer of the heavens and the earth and whatever is in them.",
+      "source_ref": "all the Ambiyaa are true. Muhammad ﷺ,",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "ae18b3c359",
+      "title": "O Allah, grant me pure sustenance and engage me in good actions",
+      "source_ref": "Kanzul Ummaal # 3861",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "3ad484b7ab",
+      "title": "It is reported in authentic Ahaadith that Rasulullah ﷺ used to recite the following dua very often: “O Alla...",
+      "source_ref": "Kanzul Ummaal # 3692",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "c72d72d9fa",
+      "title": "O Allah, my Rabb and the Rabb of Ibraaheem (alayhis salaam), Ishaaq (alayhis salaam), Ya’qoob (alayhis sala...",
+      "source_ref": "Kanzul Ummaal # 3476",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "1f581174a5",
+      "title": "O Allah, do not leave me to myself for the blinking of an eye and do not snatch away from me whatever good...",
+      "source_ref": "Kanzul Ummaal # 3674",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "2a52e9d432",
+      "title": "O Allah, grant us (rizq) sustenance by Your Grace, do not deprive us of Your sustenance, add (barkat) bless...",
+      "source_ref": "Kanzul Ummaal # 38",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "039c24fc1e",
+      "title": "O Allah, You are the Creator, full of greatness.",
+      "source_ref": "Kanzul Ummaal # 5111",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "958a080d42",
+      "title": "O Allah, I seek Your protection from arrogance due to wealth and disgrace due to poverty.",
+      "source_ref": "Musnad al-Firdaus # 460",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "a68be72936",
+      "title": "O Allah, I beg of You by Your Kind Personality and Your Supreme Command that You save me from the Fire, fro...",
+      "source_ref": "Kanzul Ummaal # 3785",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "465d6eba09",
+      "title": "O Allah, forgive my sins, expand for me my character (make me big hearted), provide me with halaal sustenan...",
+      "source_ref": "Reference not clearly extracted from PDF",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    },
+    {
+      "id": "22cc36eed4",
+      "title": "Oh Allah, the being who levelled the earth, creator of the high skies.",
+      "source_ref": "Kanzul Ummaal # 3989",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Sustenance",
+      "status": "omitted_pdf_extraction",
+      "note": "Arabic omitted because PDF extraction was not reliable."
+    }
+  ],
+  "remaining_review": []
+}
