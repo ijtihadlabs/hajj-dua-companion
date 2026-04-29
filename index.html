@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f3b2e">
+  <meta name="description" content="A free offline Hajj and Umrah dua companion from Ijtihad Labs, with Qur’an, authentic Sunnah, source notes, and iPhone-friendly reading.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Hajj Duas">
+  <link rel="canonical" href="https://hajj-dua-companion.ijtihadlabs.org/">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta property="og:title" content="Hajj Dua Companion">
+  <meta property="og:description" content="A free offline Hajj and Umrah dua companion from Ijtihad Labs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hajj-dua-companion.ijtihadlabs.org/">
+  <meta property="og:image" content="https://hajj-dua-companion.ijtihadlabs.org/icons/icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css">
+  <title>Hajj Dua Companion</title>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Ijtihad Labs · السلام عليكم ورحمة الله وبركاته</p>
+      <h1>Hajj Dua Companion</h1>
+    </div>
+    <div class="font-controls" aria-label="Arabic font size">
+      <button id="fontDown" type="button" aria-label="Smaller Arabic text">A-</button>
+      <button id="fontUp" type="button" aria-label="Larger Arabic text">A+</button>
+      <label class="tajweed-toggle" title="Show tajweed colours for Qur’anic text" aria-label="Toggle tajweed colours for Qur’anic text">
+        <input id="tajweedToggle" type="checkbox">
+        <span class="tajweed-short" aria-hidden="true">T</span>
+        <span class="tajweed-full" aria-hidden="true">Tajweed</span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-band">
+      <label class="search">
+        <span>Search</span>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="forgiveness, parents, Arafah">
+      </label>
+      <div class="tabs" role="tablist" aria-label="Views">
+        <button class="tab active" data-view="hajj" type="button">Hajj</button>
+        <button class="tab" data-view="collections" type="button">Collections</button>
+        <button class="tab" data-view="library" type="button">Library</button>
+        <button class="tab" data-view="saved" type="button">Saved</button>
+        <button class="tab" data-view="appendix" type="button">Appendix</button>
+      </div>
+    </section>
+
+    <section id="hajjView" class="view active-view">
+      <div id="momentGrid" class="moment-grid"></div>
+      <div class="section-head">
+        <h2 id="viewTitle">Arafah</h2>
+        <button id="focusFirst" class="quiet-button" type="button">Focus</button>
+      </div>
+      <div id="hajjList" class="dua-list"></div>
+    </section>
+
+    <section id="collectionsView" class="view">
+      <div id="collectionGrid" class="collection-grid"></div>
+      <div class="section-head">
+        <h2 id="collectionTitle">Qur’anic Rabbana</h2>
+        <button id="collectionFocusFirst" class="quiet-button" type="button">Focus</button>
+      </div>
+      <div id="collectionList" class="dua-list"></div>
+    </section>
+
+    <section id="libraryView" class="view">
+      <div class="filters">
+        <label><span>Category</span><select id="categoryFilter"></select></label>
+        <label><span>Authenticity</span><select id="tierFilter"></select></label>
+      </div>
+      <div id="libraryList" class="dua-list"></div>
+    </section>
+
+    <section id="savedView" class="view">
+      <div class="section-head"><h2>Saved</h2></div>
+      <div id="savedList" class="dua-list"></div>
+    </section>
+
+    <section id="appendixView" class="view">
+      <div class="section-head"><h2>Appendix</h2></div>
+      <div id="appendixList" class="dua-list"></div>
+    </section>
+  </main>
+
+  <footer class="app-footnote">
+    <p>Built as a free khidmah by <a href="https://ijtihadlabs.org" target="_blank" rel="noreferrer">Ijtihad Labs</a>.</p>
+    <p>References are provided for ease. Open dua moments are not fixed wordings; please review important religious matters with reliable scholarship.</p>
+    <p><a href="hajj_dua_companion_mobile.pdf">Mobile PDF</a> · <a href="https://github.com/ijtihadlabs/hajj-dua-companion" target="_blank" rel="noreferrer">GitHub</a> · <a href="mailto:contact@ijtihadlabs.org">Contact</a></p>
+  </footer>
+
+  <dialog id="focusDialog" class="focus-dialog">
+    <div class="focus-shell">
+      <div class="focus-actions">
+        <button id="focusClose" type="button">Close</button>
+        <button id="focusSave" type="button">Save</button>
+      </div>
+      <article id="focusContent"></article>
+      <div class="focus-nav">
+        <button id="focusPrev" type="button">Previous</button>
+        <button id="focusNext" type="button">Next</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
