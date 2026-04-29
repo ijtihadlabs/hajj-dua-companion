@@ -1,7 +1,7 @@
 {
   "summary": {
-    "clean_overlay_repaired": 34,
-    "arabic_omitted": 260,
+    "clean_overlay_repaired": 35,
+    "arabic_omitted": 259,
     "main_entries_still_pdf_extracted_review": 0
   },
   "repaired": [
@@ -249,6 +249,15 @@
       "source_url": "https://sunnah.com/bukhari:5674"
     },
     {
+      "id": "2a4c5a3c11",
+      "title": "O Allah, You are my Lord; there is no deity except You.",
+      "source_ref": "Bukhaari # 6306",
+      "source_document": "Al-Hizbul A'zam",
+      "category": "Seeking Forgiveness",
+      "confidence": "exact",
+      "source_url": "https://sunnah.com/bukhari:6306"
+    },
+    {
       "id": "f2f70e9cab",
       "title": "O Allah, I seek refuge in Your pleasure from Your displeasure, in Your pardon from Your punishment, and I s...",
       "source_ref": "Muslim # 486",
@@ -313,15 +322,6 @@
     }
   ],
   "omitted": [
-    {
-      "id": "2a4c5a3c11",
-      "title": "Sayyidul Istighfaar: for istigfaar the most comprehensive dua is the following: O Allah, You are my Rabb, t...",
-      "source_ref": "Bukhaari # 6306",
-      "source_document": "Al-Hizbul A'zam",
-      "category": "Seeking Forgiveness",
-      "status": "omitted_pending_clean_source",
-      "note": "Arabic omitted pending clean source verification."
-    },
     {
       "id": "cdad17d20e",
       "title": "O Allah, I am Your slave, the son of Your slave the son of Your slave woman, my forelock is in Your control...",
