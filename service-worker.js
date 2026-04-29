@@ -1,4 +1,4 @@
-const CACHE = 'hajj-dua-companion-v6';
+const CACHE = 'hajj-dua-companion-v8';
 const ASSETS = [
   './',
   './index.html',

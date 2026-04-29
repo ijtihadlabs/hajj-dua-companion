@@ -107,6 +107,11 @@ main { max-width: 880px; margin: 0 auto; padding: 14px 12px 96px; }
 .filters { grid-template-columns: 1fr 1fr; margin-bottom: 12px; }
 .tab { min-width: 0; padding: 0 4px; font-size: .86rem; }
 .tab.active, .moment.active, .quiet-button { background: var(--green); border-color: var(--green); color: white; }
+.saved-filter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-bottom: 12px; }
+.saved-filter { min-height: 44px; padding: 8px; text-align: left; display: grid; align-content: center; gap: 2px; }
+.saved-filter strong { font-size: .82rem; line-height: 1.2; }
+.saved-filter span { font-size: .72rem; color: currentColor; opacity: .78; }
+.saved-filter.active { background: var(--green); border-color: var(--green); color: white; }
 .moment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 16px; }
 .collection-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 16px; }
 .moment, .collection-card { min-height: 64px; padding: 10px; text-align: left; display: grid; align-content: space-between; }
@@ -131,10 +136,12 @@ main { max-width: 880px; margin: 0 auto; padding: 14px 12px 96px; }
 .card-title { font-size: .92rem; line-height: 1.35; color: var(--muted); }
 .save { flex: 0 0 42px; width: 42px; }
 .save.saved { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+.remove-saved { border-color: #d9b5ba; color: var(--rose); background: #fff7f7; }
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .badge { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; font-size: .72rem; color: var(--muted); }
 .badge.quran { border-color: var(--green); color: var(--green); background: var(--green-soft); }
 .badge.athar { border-color: #9a7b35; color: #6d4f05; background: #fff4d9; }
+.badge.guidance { border-color: #8ab2ba; color: #075466; background: #e5f5f7; }
 .badge.needs { border-color: #d4a21a; color: #715000; background: #fff5cf; }
 .badge.appendix { border-color: #d9b5ba; color: var(--rose); background: #fbebed; }
 .badge.open { border-color: #8ab2ba; color: #075466; background: #e5f5f7; }
@@ -190,6 +197,16 @@ summary { cursor: pointer; color: var(--ink); }
 .focus-actions, .focus-nav { display: flex; justify-content: space-between; gap: 8px; }
 .focus-shell article { overflow: auto; display: grid; align-content: center; gap: 16px; }
 .focus-shell .arabic { font-size: calc(2.25rem * var(--arabic-scale)); }
+.save-dialog { width: min(92vw, 560px); max-width: 100%; border: 0; border-radius: 10px; padding: 0; background: var(--paper); color: var(--ink); }
+.save-dialog::backdrop { background: rgba(0,0,0,.32); }
+.save-shell { display: grid; gap: 12px; padding: 16px; }
+.save-category-grid { display: grid; gap: 8px; max-height: 58dvh; overflow: auto; padding-right: 2px; }
+.save-category { min-height: 58px; padding: 10px; text-align: left; display: grid; gap: 3px; align-content: center; }
+.save-category strong { font-size: .92rem; line-height: 1.2; }
+.save-category span { font-size: .76rem; color: currentColor; opacity: .78; }
+.save-category.active { background: var(--green); border-color: var(--green); color: white; }
+.dialog-actions { display: flex; justify-content: flex-end; }
+.dialog-actions button:disabled { opacity: .5; cursor: not-allowed; }
 @media (min-width: 720px) {
   main { padding-inline: 20px; }
   .moment-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }

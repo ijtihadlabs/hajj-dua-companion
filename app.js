@@ -1,3 +1,13 @@
+const NEEDS_CATEGORY = 'needs-category';
+
+function readStoredJson(key, fallback) {
+  try {
+    return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback));
+  } catch {
+    return fallback;
+  }
+}
+
 const state = {
   data: null,
   view: 'hajj',
@@ -6,11 +16,14 @@ const state = {
   query: '',
   category: 'All',
   tier: 'All',
+  savedFilter: 'all',
   fontScale: Number(localStorage.getItem('fontScale') || '1'),
   tajweed: localStorage.getItem('tajweedColours') === '1',
   focusItems: [],
   focusIndex: 0,
-  saved: new Set(JSON.parse(localStorage.getItem('savedDuas') || '[]')),
+  savedCategories: readStoredJson('savedDuaCategories', {}),
+  pendingSaveId: '',
+  pendingSaveCategory: '',
 };
 
 const $ = (id) => document.getElementById(id);
@@ -19,15 +32,40 @@ const esc = (value = '') => String(value).replace(/[&<>"']/g, (ch) => ({'&':'&am
 function tierClass(tier) {
   if (tier === 'Qur’an') return 'quran';
   if (tier === 'Companion report / Athar') return 'athar';
+  if (tier === 'Practical guidance') return 'guidance';
   if (tier === 'Needs verification') return 'needs';
   if (tier === 'Devotional/appendix') return 'appendix';
   return '';
 }
 
 function saveState() {
-  localStorage.setItem('savedDuas', JSON.stringify([...state.saved]));
+  localStorage.setItem('savedDuaCategories', JSON.stringify(state.savedCategories));
   localStorage.setItem('fontScale', String(state.fontScale));
   localStorage.setItem('tajweedColours', state.tajweed ? '1' : '0');
+}
+
+function migrateSavedState() {
+  const legacySaved = readStoredJson('savedDuas', []);
+  if (Array.isArray(legacySaved) && legacySaved.length) {
+    legacySaved.forEach((id) => {
+      if (!state.savedCategories[id]) state.savedCategories[id] = NEEDS_CATEGORY;
+    });
+    localStorage.removeItem('savedDuas');
+    saveState();
+  }
+}
+
+function isSaved(id) {
+  return Boolean(state.savedCategories[id]);
+}
+
+function saveCategoryById(id) {
+  if (id === NEEDS_CATEGORY) return { id, title: 'Needs category', description: 'Saved before categories were added.' };
+  return state.data.save_categories.find((category) => category.id === id);
+}
+
+function saveCategoryLabel(id) {
+  return saveCategoryById(id)?.title || 'Needs category';
 }
 
 function applyFontScale() {
@@ -41,8 +79,29 @@ function matchesQuery(item) {
 
 function visibleEntries({ appendix = false, saved = false, includeCollectionOnly = false } = {}) {
   let entries = state.data.entries.filter((item) => appendix ? item.appendix_only : (!item.appendix_only && (includeCollectionOnly || !item.collection_only)));
-  if (saved) entries = state.data.entries.filter((item) => state.saved.has(item.id));
+  if (saved) entries = state.data.entries.filter((item) => isSaved(item.id));
   return entries.filter(matchesQuery).sort((a, b) => a.sort_rank - b.sort_rank || a.title.localeCompare(b.title));
+}
+
+function savedEntries() {
+  let entries = state.data.entries.filter((item) => isSaved(item.id));
+  if (state.savedFilter !== 'all') entries = entries.filter((item) => state.savedCategories[item.id] === state.savedFilter);
+  return entries.filter(matchesQuery).sort((a, b) => {
+    const categoryCompare = saveCategoryLabel(state.savedCategories[a.id]).localeCompare(saveCategoryLabel(state.savedCategories[b.id]));
+    return categoryCompare || a.sort_rank - b.sort_rank || a.title.localeCompare(b.title);
+  });
+}
+
+function savedCategoryCounts() {
+  const counts = { all: 0, [NEEDS_CATEGORY]: 0 };
+  state.data.save_categories.forEach((category) => { counts[category.id] = 0; });
+  state.data.entries.forEach((item) => {
+    const categoryId = state.savedCategories[item.id];
+    if (!categoryId) return;
+    counts.all += 1;
+    counts[categoryId] = (counts[categoryId] || 0) + 1;
+  });
+  return counts;
 }
 
 function selectedCollection() {
@@ -52,10 +111,11 @@ function selectedCollection() {
 function collectionEntries() {
   const collection = selectedCollection();
   const ids = new Set(collection.entry_ids);
+  const order = new Map(collection.entry_ids.map((id, index) => [id, index]));
   return state.data.entries
     .filter((item) => ids.has(item.id))
     .filter(matchesQuery)
-    .sort((a, b) => a.sort_rank - b.sort_rank || a.source_ref.localeCompare(b.source_ref));
+    .sort((a, b) => (order.get(a.id) ?? 9999) - (order.get(b.id) ?? 9999) || a.sort_rank - b.sort_rank || a.title.localeCompare(b.title));
 }
 
 function arabicBlock(item) {
@@ -79,7 +139,8 @@ function statusBadges(item) {
 }
 
 function card(item, focusList) {
-  const saved = state.saved.has(item.id);
+  const saved = isSaved(item.id);
+  const savedCategory = state.savedCategories[item.id];
   const tags = [item.category, item.hajj_moment, ...item.tags, ...(item.collections || []).map((id) => state.data.collections.find((collection) => collection.id === id)?.title).filter(Boolean)].filter(Boolean);
   const transliteration = item.dua_transliteration || item.transliteration;
   const meaning = item.dua_meaning || item.meaning;
@@ -91,6 +152,7 @@ function card(item, focusList) {
     </div>
     <div class="badges">
       ${statusBadges(item)}
+      ${saved ? `<span class="badge guidance">Saved in: ${esc(saveCategoryLabel(savedCategory))}</span>` : ''}
       ${tags.slice(0, 4).map((tag) => `<span class="badge">${esc(tag)}</span>`).join('')}
     </div>
     ${item.fixed_text_status === 'open_dua_moment' ? '<p class="open-note">Open dua moment: no fixed wording is being prescribed here.</p>' : ''}
@@ -106,6 +168,7 @@ function card(item, focusList) {
       <p>${esc(item.source_document)} · ${esc(item.source_section)}${pageText}</p>
       <p>Arabic source: ${esc(item.arabic_source)}</p>
     </details>
+    ${state.view === 'saved' && saved ? `<button class="remove-saved" data-remove-saved="${esc(item.id)}" type="button">Remove from Saved</button>` : ''}
     <button class="quiet-button" data-focus="${esc(item.id)}" type="button">Focus</button>
   </article>`;
 }
@@ -154,8 +217,25 @@ function renderCollections() {
   renderList('collectionList', collectionEntries());
 }
 
+function renderSavedFilters() {
+  const counts = savedCategoryCounts();
+  const hasNeedsCategory = counts[NEEDS_CATEGORY] > 0;
+  const options = [
+    { id: 'all', title: 'All saved', count: counts.all },
+    ...(hasNeedsCategory ? [{ id: NEEDS_CATEGORY, title: 'Needs category', count: counts[NEEDS_CATEGORY] }] : []),
+    ...state.data.save_categories.map((category) => ({ id: category.id, title: category.title, count: counts[category.id] || 0 })),
+  ];
+  if (!options.some((option) => option.id === state.savedFilter)) state.savedFilter = 'all';
+  $('savedCategoryFilters').innerHTML = options.map((option) => `
+    <button class="saved-filter ${state.savedFilter === option.id ? 'active' : ''}" data-saved-filter="${esc(option.id)}" type="button">
+      <strong>${esc(option.title)}</strong><span>${option.count} saved</span>
+    </button>
+  `).join('');
+}
+
 function renderSaved() {
-  renderList('savedList', visibleEntries({ saved: true }));
+  renderSavedFilters();
+  renderList('savedList', savedEntries());
 }
 
 function renderAppendix() {
@@ -178,7 +258,7 @@ function openFocus(id) {
     hajj: visibleEntries().filter((item) => item.hajj_moment === state.moment),
     collections: collectionEntries(),
     library: visibleEntries().filter((item) => (state.category === 'All' || item.category === state.category) && (state.tier === 'All' || item.authenticity_tier === state.tier)),
-    saved: visibleEntries({ saved: true }),
+    saved: savedEntries(),
     appendix: visibleEntries({ appendix: true }),
   };
   state.focusItems = lists[state.view];
@@ -192,9 +272,10 @@ function renderFocus() {
   if (!item) return;
   const transliteration = item.dua_transliteration || item.transliteration;
   const meaning = item.dua_meaning || item.meaning;
-  $('focusSave').textContent = state.saved.has(item.id) ? 'Saved' : 'Save';
+  const savedCategory = state.savedCategories[item.id];
+  $('focusSave').textContent = savedCategory ? 'Saved' : 'Save';
   $('focusContent').innerHTML = `
-    <div class="badges">${statusBadges(item)}<span class="badge">${esc(item.category)}</span></div>
+    <div class="badges">${statusBadges(item)}${savedCategory ? `<span class="badge guidance">Saved in: ${esc(saveCategoryLabel(savedCategory))}</span>` : ''}<span class="badge">${esc(item.category)}</span></div>
     ${item.fixed_text_status === 'open_dua_moment' ? '<p class="open-note">Open dua moment: no fixed wording is being prescribed here.</p>' : ''}
     ${arabicBlock(item)}
     ${item.arabic_omitted_note ? `<p class="omitted-note">${esc(item.arabic_omitted_note)}</p>` : ''}
@@ -204,8 +285,41 @@ function renderFocus() {
     <p class="card-title">${esc(item.sunnah_reference || item.source_ref)}</p>`;
 }
 
-function toggleSaved(id) {
-  state.saved.has(id) ? state.saved.delete(id) : state.saved.add(id);
+function openSaveDialog(id) {
+  const item = state.data.entries.find((entry) => entry.id === id);
+  if (!item) return;
+  state.pendingSaveId = id;
+  state.pendingSaveCategory = state.savedCategories[id] || '';
+  $('saveDialogTitle').textContent = item.title;
+  renderSaveDialogCategories();
+  $('saveDialog').showModal();
+}
+
+function renderSaveDialogCategories() {
+  $('saveCategoryGrid').innerHTML = state.data.save_categories.map((category) => `
+    <button class="save-category ${state.pendingSaveCategory === category.id ? 'active' : ''}" data-save-category="${esc(category.id)}" type="button">
+      <strong>${esc(category.title)}</strong><span>${esc(category.description)}</span>
+    </button>
+  `).join('');
+  $('saveConfirm').disabled = !state.pendingSaveCategory;
+  $('saveConfirm').textContent = state.pendingSaveCategory
+    ? `Save in ${saveCategoryLabel(state.pendingSaveCategory)}`
+    : 'Save to category';
+}
+
+function savePendingDua() {
+  if (!state.pendingSaveId || !state.pendingSaveCategory) return;
+  state.savedCategories[state.pendingSaveId] = state.pendingSaveCategory;
+  state.pendingSaveId = '';
+  state.pendingSaveCategory = '';
+  saveState();
+  $('saveDialog').close();
+  render();
+  if ($('focusDialog').open) renderFocus();
+}
+
+function removeSaved(id) {
+  delete state.savedCategories[id];
   saveState();
   render();
   if ($('focusDialog').open) renderFocus();
@@ -213,7 +327,7 @@ function toggleSaved(id) {
 
 function populateFilters() {
   $('categoryFilter').innerHTML = ['All', ...state.data.categories].map((cat) => `<option value="${esc(cat)}">${esc(cat)}</option>`).join('');
-  $('tierFilter').innerHTML = ['All', 'Qur’an', 'Sahih/Hasan Sunnah', 'Companion report / Athar'].map((tier) => `<option value="${esc(tier)}">${esc(tier)}</option>`).join('');
+  $('tierFilter').innerHTML = ['All', 'Qur’an', 'Sahih/Hasan Sunnah', 'Companion report / Athar', 'Practical guidance'].map((tier) => `<option value="${esc(tier)}">${esc(tier)}</option>`).join('');
 }
 
 document.addEventListener('click', (event) => {
@@ -222,7 +336,10 @@ document.addEventListener('click', (event) => {
   if (target.dataset.view) { state.view = target.dataset.view; render(); }
   if (target.dataset.moment) { state.moment = target.dataset.moment; render(); }
   if (target.dataset.collection) { state.collection = target.dataset.collection; render(); }
-  if (target.dataset.save) toggleSaved(target.dataset.save);
+  if (target.dataset.savedFilter) { state.savedFilter = target.dataset.savedFilter; renderSaved(); }
+  if (target.dataset.save) openSaveDialog(target.dataset.save);
+  if (target.dataset.saveCategory) { state.pendingSaveCategory = target.dataset.saveCategory; renderSaveDialogCategories(); }
+  if (target.dataset.removeSaved) removeSaved(target.dataset.removeSaved);
   if (target.dataset.focus) openFocus(target.dataset.focus);
 });
 
@@ -241,15 +358,18 @@ $('collectionFocusFirst').addEventListener('click', () => {
   if (first) openFocus(first.id);
 });
 $('focusClose').addEventListener('click', () => $('focusDialog').close());
-$('focusSave').addEventListener('click', () => toggleSaved(state.focusItems[state.focusIndex].id));
+$('focusSave').addEventListener('click', () => openSaveDialog(state.focusItems[state.focusIndex].id));
 $('focusPrev').addEventListener('click', () => { state.focusIndex = Math.max(0, state.focusIndex - 1); renderFocus(); });
 $('focusNext').addEventListener('click', () => { state.focusIndex = Math.min(state.focusItems.length - 1, state.focusIndex + 1); renderFocus(); });
+$('saveDialogClose').addEventListener('click', () => $('saveDialog').close());
+$('saveConfirm').addEventListener('click', savePendingDua);
 
 async function init() {
   applyFontScale();
   $('tajweedToggle').checked = state.tajweed;
   const response = await fetch('data/duas.json');
   state.data = await response.json();
+  migrateSavedState();
   populateFilters();
   render();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');

@@ -82,6 +82,7 @@
 
     <section id="savedView" class="view">
       <div class="section-head"><h2>Saved</h2></div>
+      <div id="savedCategoryFilters" class="saved-filter-grid" aria-label="Saved dua categories"></div>
       <div id="savedList" class="dua-list"></div>
     </section>
 
@@ -107,6 +108,20 @@
       <div class="focus-nav">
         <button id="focusPrev" type="button">Previous</button>
         <button id="focusNext" type="button">Next</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="saveDialog" class="save-dialog">
+    <div class="save-shell">
+      <div class="section-head">
+        <h2>Save dua</h2>
+        <button id="saveDialogClose" class="quiet-button" type="button">Close</button>
+      </div>
+      <p id="saveDialogTitle" class="card-title"></p>
+      <div id="saveCategoryGrid" class="save-category-grid" aria-label="Choose saved dua category"></div>
+      <div class="dialog-actions">
+        <button id="saveConfirm" class="quiet-button" type="button" disabled>Save to category</button>
       </div>
     </div>
   </dialog>
