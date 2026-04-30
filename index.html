@@ -24,34 +24,32 @@
 </head>
 <body>
   <header class="topbar">
-    <div>
-      <p class="eyebrow">Ijtihad Labs · السلام عليكم ورحمة الله وبركاته</p>
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" focusable="false">
+        <rect x="3" y="3" width="58" height="58" rx="13" fill="#1f3b2e"/>
+        <path d="M13 21c0-3.5 2.8-6.3 6.3-6.3h11.2c3.1 0 5.8 1.8 7.1 4.5 1.3-2.7 4-4.5 7.1-4.5h5c3.5 0 6.3 2.8 6.3 6.3v26.3c0 1.9-1.5 3.4-3.4 3.4H41.7c-2.1 0-4.2.6-5.9 1.8-1.7-1.2-3.8-1.8-5.9-1.8H16.4c-1.9 0-3.4-1.5-3.4-3.4V21Z" fill="#efe8dc"/>
+        <path d="M17 22c0-1.8 1.4-3.2 3.2-3.2h9.1c3.2 0 5.8 2.6 5.8 5.8v22.9c-1.7-.8-3.6-1.2-5.6-1.2h-9.3c-1.8 0-3.2-1.4-3.2-3.2V22Z" fill="#fffaf2"/>
+        <path d="M38.9 24.6c0-3.2 2.6-5.8 5.8-5.8h3.1c1.8 0 3.2 1.4 3.2 3.2v21.1c0 1.8-1.4 3.2-3.2 3.2h-3.3c-2 0-3.9.4-5.6 1.2V24.6Z" fill="#fffaf2"/>
+        <path d="M35 21h4v28h-4z" fill="#6f7f59"/>
+        <path d="M23 26h7M23 33h7M44 26h3M44 33h3" stroke="#d9cdbb" stroke-width="2.7" stroke-linecap="round"/>
+        <path d="M26 36h18v16H26z" fill="#c79a48"/>
+        <path d="M31.7 39.7h6.6v7.6h-6.6z" fill="#15261e"/>
+      </svg>
+    </div>
+    <div class="brand-copy">
+      <p class="eyebrow">Offline · Ijtihad Labs</p>
       <h1>Hajj Dua Companion</h1>
     </div>
-    <div class="font-controls" aria-label="Arabic font size">
-      <button id="fontDown" type="button" aria-label="Smaller Arabic text">A-</button>
-      <button id="fontUp" type="button" aria-label="Larger Arabic text">A+</button>
-      <label class="tajweed-toggle" title="Show tajweed colours for Qur’anic text" aria-label="Toggle tajweed colours for Qur’anic text">
-        <input id="tajweedToggle" type="checkbox">
-        <span class="tajweed-short" aria-hidden="true">T</span>
-        <span class="tajweed-full" aria-hidden="true">Tajweed</span>
-      </label>
-    </div>
+    <button id="settingsOpen" class="icon-button" type="button" aria-label="Open reading settings">Aa</button>
   </header>
 
   <main>
     <section class="search-band">
+      <button id="searchToggle" class="search-toggle" type="button" aria-expanded="false">Search duas</button>
       <label class="search">
-        <span>Search</span>
+        <span class="visually-hidden">Search</span>
         <input id="searchInput" type="search" autocomplete="off" placeholder="forgiveness, parents, Arafah">
       </label>
-      <div class="tabs" role="tablist" aria-label="Views">
-        <button class="tab active" data-view="hajj" type="button">Hajj</button>
-        <button class="tab" data-view="collections" type="button">Collections</button>
-        <button class="tab" data-view="library" type="button">Library</button>
-        <button class="tab" data-view="saved" type="button">Saved</button>
-        <button class="tab" data-view="appendix" type="button">Appendix</button>
-      </div>
     </section>
 
     <section id="hajjView" class="view active-view">
@@ -81,21 +79,95 @@
     </section>
 
     <section id="savedView" class="view">
-      <div class="section-head"><h2>Saved</h2></div>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Personal notebook</p>
+          <h2>Saved</h2>
+        </div>
+      </div>
+      <div class="saved-workspace">
+        <div class="saved-actions" aria-label="Saved dua actions">
+          <button id="addPersonalDua" class="primary-action" type="button">Add personal dua</button>
+          <button id="addRequestedDua" type="button">Add requested dua</button>
+        </div>
+        <details class="workspace-panel">
+          <summary>Organise categories</summary>
+          <div id="categoryManager" class="category-manager"></div>
+          <div class="category-add">
+            <label><span>New category</span><input id="newCategoryTitle" type="text" autocomplete="off" placeholder="e.g. Duas for relatives"></label>
+            <button id="addCategory" class="quiet-button" type="button">Add</button>
+          </div>
+        </details>
+      </div>
       <div id="savedCategoryFilters" class="saved-filter-grid" aria-label="Saved dua categories"></div>
       <div id="savedList" class="dua-list"></div>
     </section>
 
-    <section id="appendixView" class="view">
-      <div class="section-head"><h2>Appendix</h2></div>
-      <div id="appendixList" class="dua-list"></div>
+    <section id="moreView" class="view">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Settings and secondary material</p>
+          <h2>More</h2>
+        </div>
+      </div>
+      <div class="more-stack">
+        <details id="readingSettings" class="workspace-panel" open>
+          <summary>Reading settings</summary>
+          <div class="settings-row">
+            <span>Arabic size</span>
+            <div class="font-controls" aria-label="Arabic font size">
+              <button id="fontDown" type="button" aria-label="Smaller Arabic text">A-</button>
+              <button id="fontUp" type="button" aria-label="Larger Arabic text">A+</button>
+            </div>
+          </div>
+          <label class="tajweed-toggle" title="Show tajweed colours for Qur’anic text" aria-label="Toggle tajweed colours for Qur’anic text">
+            <input id="tajweedToggle" type="checkbox">
+            <span>Tajweed colours for Qur’an</span>
+          </label>
+        </details>
+
+        <details class="workspace-panel">
+          <summary>Data backup</summary>
+          <p class="privacy-note">Your saved duas and settings stay on this device. App updates should keep them, but clearing Safari website data or deleting the Home Screen app can remove local data.</p>
+          <div class="saved-actions">
+            <button id="exportBackup" type="button">Export backup</button>
+            <button id="importBackup" type="button">Import backup</button>
+          </div>
+          <input id="backupFile" class="visually-hidden" type="file" accept="application/json,.json">
+          <p id="storageNotice" class="storage-notice" role="status"></p>
+        </details>
+
+        <section class="workspace-panel">
+          <h2>Mobile PDF</h2>
+          <p class="privacy-note">A simple printable fallback generated from the same dua data.</p>
+          <p><a class="text-link" href="hajj_dua_companion_mobile.pdf">Open mobile PDF</a></p>
+        </section>
+
+        <details class="workspace-panel">
+          <summary>Appendix</summary>
+          <p class="privacy-note">Items needing extra verification or devotional entries are kept here so the main reading flow stays clear.</p>
+          <div id="appendixList" class="dua-list appendix-list"></div>
+        </details>
+
+        <section class="workspace-panel">
+          <h2>About</h2>
+          <p class="privacy-note">Built as a free khidmah by Ijtihad Labs. References are provided for ease. Open dua moments are not fixed wordings; please review important religious matters with reliable scholarship.</p>
+          <p><a class="text-link" href="https://ijtihadlabs.org" target="_blank" rel="noreferrer">Ijtihad Labs</a> · <a class="text-link" href="https://github.com/ijtihadlabs/hajj-dua-companion" target="_blank" rel="noreferrer">GitHub</a> · <a class="text-link" href="mailto:contact@ijtihadlabs.org">Contact</a></p>
+        </section>
+      </div>
     </section>
   </main>
 
+  <nav class="bottom-nav" role="tablist" aria-label="Main navigation">
+    <button class="tab active" data-view="hajj" type="button">Hajj</button>
+    <button class="tab" data-view="collections" type="button">Collections</button>
+    <button class="tab" data-view="library" type="button">Library</button>
+    <button class="tab" data-view="saved" type="button">Saved</button>
+    <button class="tab" data-view="more" type="button">More</button>
+  </nav>
+
   <footer class="app-footnote">
-    <p>Built as a free khidmah by <a href="https://ijtihadlabs.org" target="_blank" rel="noreferrer">Ijtihad Labs</a>.</p>
-    <p>References are provided for ease. Open dua moments are not fixed wordings; please review important religious matters with reliable scholarship.</p>
-    <p><a href="hajj_dua_companion_mobile.pdf">Mobile PDF</a> · <a href="https://github.com/ijtihadlabs/hajj-dua-companion" target="_blank" rel="noreferrer">GitHub</a> · <a href="mailto:contact@ijtihadlabs.org">Contact</a></p>
+    <p>Free khidmah by <a href="https://ijtihadlabs.org" target="_blank" rel="noreferrer">Ijtihad Labs</a>. Data stays on this device unless you export it.</p>
   </footer>
 
   <dialog id="focusDialog" class="focus-dialog">
@@ -122,6 +194,43 @@
       <div id="saveCategoryGrid" class="save-category-grid" aria-label="Choose saved dua category"></div>
       <div class="dialog-actions">
         <button id="saveConfirm" class="quiet-button" type="button" disabled>Save to category</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="customDuaDialog" class="custom-dua-dialog">
+    <div class="save-shell">
+      <div class="section-head">
+        <h2 id="customDuaDialogTitle">Add personal dua</h2>
+        <button id="customDuaClose" class="quiet-button" type="button">Close</button>
+      </div>
+      <label class="form-field"><span id="customDuaTitleLabel">Title</span><input id="customDuaTitle" type="text" autocomplete="off" dir="auto"></label>
+      <label id="requestedByField" class="form-field" hidden aria-hidden="true"><span>Requested by</span><input id="requestedBy" type="text" autocomplete="off" dir="auto" placeholder="Name" disabled></label>
+      <label class="form-field"><span id="customDuaBodyLabel">Dua / reminder</span><textarea id="customDuaBody" rows="7" dir="auto"></textarea></label>
+      <label class="form-field"><span>Personal note</span><textarea id="customDuaNote" rows="3" dir="auto"></textarea></label>
+      <label class="form-field"><span>Saved category</span><select id="customDuaCategory"></select></label>
+      <div class="dialog-actions split-actions">
+        <button id="customDuaDelete" class="danger-button" type="button">Delete</button>
+        <button id="customDuaSave" class="quiet-button" type="button">Save</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="versionNotesDialog" class="version-notes-dialog" aria-labelledby="versionNotesTitle">
+    <div class="save-shell version-notes">
+      <div class="section-head">
+        <h2 id="versionNotesTitle">What’s new in 2026.04.30</h2>
+      </div>
+      <p class="privacy-note">A quick note so the new look and features do not surprise you.</p>
+      <ul>
+        <li>Calmer reading layout with simple bottom navigation.</li>
+        <li>Saved is now a personal dua notebook with editable categories.</li>
+        <li>You can add personal duas and requested duas privately on this device.</li>
+        <li>More contains reading settings, backup/import, PDF, and Appendix.</li>
+        <li>New verified Hajj, Umrah, and Madinah guidance has clearer source notes.</li>
+      </ul>
+      <div class="dialog-actions">
+        <button id="versionNotesOk" class="quiet-button" type="button">OK</button>
       </div>
     </div>
   </dialog>

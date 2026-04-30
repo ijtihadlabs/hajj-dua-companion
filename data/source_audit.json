@@ -1,0 +1,234 @@
+{
+  "summary": {
+    "policy": "Main app additions are limited to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or clearly labelled Sahih/Hasan/companion-report guidance. Doubtful items are excluded or marked for review.",
+    "new_pdf_discovery_source": "/Users/syeislam/Desktop/Hajj 2026/Hajj-Umrah-Madinah-Duas-2024-Web-Edition-v2-1.pdf",
+    "reviewed_count": 24,
+    "verified_primary": 20,
+    "verified_secondary": 1,
+    "needs_review": 1,
+    "excluded_weak_or_unclear": 2
+  },
+  "reviewed_entries": [
+    {
+      "id": "curated-maqam-ibrahim-2-125",
+      "title": "Maqam Ibrahim after Tawaf",
+      "status": "verified_primary",
+      "source_ref": "Qur'an 2:125; Sahih Muslim 1218a",
+      "sunnah_reference": "Sahih Muslim 1218a",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-sai-start-2-158",
+      "title": "Start of Sa'i - Safa and Marwah verse",
+      "status": "verified_primary",
+      "source_ref": "Qur'an 2:158; Sahih Muslim 1218a; Hisn al-Muslim 236",
+      "sunnah_reference": "Sahih Muslim 1218a; Hisn al-Muslim 236",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-riyad-1470-turn-hearts",
+      "title": "Turn our hearts to Your obedience",
+      "status": "verified_primary",
+      "source_ref": "Riyad as-Salihin 1470; Muslim",
+      "sunnah_reference": "Riyad as-Salihin 1470; Muslim",
+      "source_document": "Riyad as-Salihin / Sunnah.com",
+      "source_url": "https://sunnah.com/riyadussalihin:1470",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-riyad-1472-rectify-affairs",
+      "title": "Rectify my religion, world and Hereafter",
+      "status": "verified_primary",
+      "source_ref": "Riyad as-Salihin 1472; Muslim",
+      "sunnah_reference": "Riyad as-Salihin 1472; Muslim",
+      "source_document": "Riyad as-Salihin / Sunnah.com",
+      "source_url": "https://sunnah.com/riyadussalihin:1472",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-ihram-condition-mahilli",
+      "title": "Conditional Ihram wording",
+      "status": "verified_primary",
+      "source_ref": "Sahih Muslim 1207a",
+      "sunnah_reference": "Sahih Muslim 1207a; also reported with similar wording in Sahih Muslim 1207b",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "https://sunnah.com/muslim:1207a",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-jamarat-after-first-second-open-dua",
+      "title": "After the first and second Jamarah",
+      "status": "verified_primary",
+      "source_ref": "Sahih al-Bukhari 1751; Hisn al-Muslim 239",
+      "sunnah_reference": "Sahih al-Bukhari 1751; Hisn al-Muslim 239",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-muzdalifah-open-dua",
+      "title": "Muzdalifah - open dua and dhikr",
+      "status": "verified_primary",
+      "source_ref": "Sahih Muslim 1218a; Hisn al-Muslim 238",
+      "sunnah_reference": "Sahih Muslim 1218a; Muslim 2/891 in Hisn al-Muslim 238",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-sai-start-phrase",
+      "title": "I begin with what Allah began with",
+      "status": "verified_primary",
+      "source_ref": "Sahih Muslim 1218a; Hisn al-Muslim 236",
+      "sunnah_reference": "Sahih Muslim 1218a; Muslim 2/888 in Hisn al-Muslim 236",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-zamzam-hadith",
+      "title": "Drinking Zamzam",
+      "status": "verified_primary",
+      "source_ref": "Sunan Ibn Majah 3062",
+      "sunnah_reference": "Sunan Ibn Majah 3062; graded Hasan (Darussalam)",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-madinah-masjid-quba-guidance",
+      "title": "Masjid Quba prayer reward",
+      "status": "verified_primary",
+      "source_ref": "Sunan Ibn Majah 1412",
+      "sunnah_reference": "Sunan Ibn Majah 1412; graded Hasan (Darussalam)",
+      "source_document": "Sunan Ibn Majah / Sunnah.com",
+      "source_url": "https://sunnah.com/ibnmajah:1412",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-madinah-ajwah-guidance",
+      "title": "Seven Ajwah dates in the morning",
+      "status": "verified_primary",
+      "source_ref": "Sahih al-Bukhari 5445; Sahih Muslim 2047b",
+      "sunnah_reference": "Sahih al-Bukhari 5445; Sahih Muslim 2047b",
+      "source_document": "Bukhari/Muslim via Sunnah.com",
+      "source_url": "https://sunnah.com/bukhari:5445",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-riyad-1478-blessings-aafiyah",
+      "title": "Protection from loss of blessings and aafiyah",
+      "status": "verified_primary",
+      "source_ref": "Riyad as-Salihin 1478; Muslim",
+      "sunnah_reference": "Riyad as-Salihin 1478; Muslim",
+      "source_document": "Riyad as-Salihin / Sunnah.com",
+      "source_url": "https://sunnah.com/riyadussalihin:1478",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-riyad-1483-protect-senses-heart",
+      "title": "Protection from the evil of hearing, sight, tongue and heart",
+      "status": "verified_primary",
+      "source_ref": "Riyad as-Salihin 1483; Abu Dawud and Tirmidhi",
+      "sunnah_reference": "Riyad as-Salihin 1483; Tirmidhi said Hasan",
+      "source_document": "Riyad as-Salihin / Sunnah.com",
+      "source_url": "https://sunnah.com/riyadussalihin:1483",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-masjid-haram-entry",
+      "title": "Entering Masjid al-Haram",
+      "status": "verified_primary",
+      "source_ref": "Sahih Muslim 713a",
+      "sunnah_reference": "Sahih Muslim 713a",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-zamzam-ibn-abbas-athar",
+      "title": "Dua of Ibn Abbas when drinking Zamzam",
+      "status": "verified_primary",
+      "source_ref": "Reported from Ibn Abbas in Sunan al-Daraqutni 2738; also cited from al-Hakim and Musannaf Abd al-Razzaq",
+      "sunnah_reference": "Companion report; not labelled as Prophetic Sunnah.",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-seeing-kabah-umar-athar",
+      "title": "Seeing the Ka'bah - companion report",
+      "status": "verified_secondary",
+      "source_ref": "Reported from Umar ibn al-Khattab when seeing the House; cited by Ibn Taymiyyah in Sharh Umdat al-Fiqh, from Sa'id, al-Shafi'i, Ahmad and others",
+      "sunnah_reference": "No authentic marfu' wording confirmed; see IslamQA 11932 for the caution on first-sight Ka'bah claims.",
+      "source_document": "Curated companion report cross-check",
+      "source_url": "https://islamqa.info/en/answers/11932",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-sai-open-dua",
+      "title": "Sa'i - open dua between Safa and Marwah",
+      "status": "verified_primary",
+      "source_ref": "Practical guidance; Safa/Marwah fixed dhikr is sourced separately to Sahih Muslim 1218a and Hisn al-Muslim 236.",
+      "sunnah_reference": "",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    },
+    {
+      "id": "curated-tawaf-open-dua",
+      "title": "Tawaf - open dua in each circuit",
+      "status": "verified_primary",
+      "source_ref": "Practical guidance; fixed Tawaf adhkar are shown separately with their own sources.",
+      "sunnah_reference": "",
+      "source_document": "Curated Hajj/Umrah research",
+      "source_url": "",
+      "note": "Included in the main app because the wording or guidance is tied to Qur'an, Bukhari/Muslim, Hisn al-Muslim, or a clearly labelled Hasan/athar source."
+    }
+  ],
+  "candidate_review": [
+    {
+      "candidate": "Conditional Ihram wording: Allahumma mahilli haythu habastani",
+      "status": "verified_primary",
+      "note": "Added as a Sunnah wording for someone fearing they may be prevented from completion; sourced to Sahih Muslim 1207a."
+    },
+    {
+      "candidate": "Bismillah before Black Stone takbir",
+      "status": "excluded_weak_or_unclear",
+      "note": "Not added as a new fixed Sunnah card in this pass. The app keeps the established Allahu Akbar wording already sourced through Hisn al-Muslim/Bukhari."
+    },
+    {
+      "candidate": "No-riya/no-sum'ah Umrah wording",
+      "status": "excluded_weak_or_unclear",
+      "note": "Not added to the main app because a clean primary authentication was not established during this local review."
+    },
+    {
+      "candidate": "Labbaik Allahumma bi-'Umrah / bi-Hajj intention wording",
+      "status": "needs_review",
+      "note": "Not added as a separate dua card. The existing Talbiyah remains the main fixed wording while intention wording is reviewed separately."
+    },
+    {
+      "candidate": "Slaughter/sacrifice wording",
+      "status": "verified_primary",
+      "note": "Existing Hisn al-Muslim slaughter entry is now connected to the Mina/Jamarat/Hajj day context rather than duplicated."
+    },
+    {
+      "candidate": "Masjid Quba and Ajwah Madinah guidance",
+      "status": "verified_primary",
+      "note": "Added as guidance cards, not dua formula cards, with Sunnah.com references."
+    }
+  ],
+  "sources_used": [
+    "Quran.com API v4 / Quran Foundation cached Uthmani, QPC Hafs, and tajweed text",
+    "Sunnah.com Hisn al-Muslim pages 233-239",
+    "Sahih Muslim 713a, 1207a, and 1218a on Sunnah.com",
+    "Sahih al-Bukhari 1632 and 1751 on Sunnah.com",
+    "Sunan Ibn Majah 1412 and 3062 on Sunnah.com",
+    "Riyad as-Salihin Book of Du'a on Sunnah.com",
+    "Abu Khadeejah / Salafi Publications Hajj, Umrah, Madinah PDF used for discovery and cross-check only"
+  ]
+}
