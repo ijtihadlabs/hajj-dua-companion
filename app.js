@@ -1,10 +1,11 @@
 const USER_DATA_KEY = 'hajjDuaCompanionUserData';
-const USER_DATA_VERSION = 2;
+const APP_VERSION = '2026.05.01';
+const USER_DATA_VERSION = 6;
 const MIGRATION_BACKUP_KEY = 'hajjDuaCompanionMigrationBackup';
 const NEEDS_CATEGORY = 'needs-category';
 const REQUESTED_CATEGORY = 'requested-duas';
 const VERSION_NOTES_KEY = 'hajjDuaCompanionSeenVersionNotes';
-const VERSION_NOTES_ID = '2026.04.30';
+const VERSION_NOTES_ID = '2026.05.01';
 
 const state = {
   data: null,
@@ -24,7 +25,17 @@ const state = {
   pendingSaveCategory: '',
   pendingCustomKind: 'personal',
   pendingCustomId: '',
+  pendingCustomSourceSnapshot: null,
+  pendingReturnAfterCustom: null,
+  pendingProtectedSelection: null,
+  pendingPhraseSegmentIds: [],
+  pendingAutoEnglish: '',
+  pendingEnglishEdited: false,
+  suppressEnglishEdit: false,
   storageNotice: '',
+  readingSaveTimer: 0,
+  restoreTimer: 0,
+  suppressReadingCapture: false,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -56,12 +67,16 @@ function safeLocalStorageSet(key, value) {
   }
 }
 
-function maybeShowVersionNotes() {
-  if (safeLocalStorageGet(VERSION_NOTES_KEY) === VERSION_NOTES_ID) return;
+function openVersionNotes() {
   const dialog = $('versionNotesDialog');
   if (!dialog) return;
   if (typeof dialog.showModal === 'function') dialog.showModal();
   else dialog.setAttribute('open', '');
+}
+
+function maybeShowVersionNotes() {
+  if (safeLocalStorageGet(VERSION_NOTES_KEY) === VERSION_NOTES_ID) return;
+  openVersionNotes();
 }
 
 function closeVersionNotes() {
@@ -70,6 +85,34 @@ function closeVersionNotes() {
   if (!dialog) return;
   if (typeof dialog.close === 'function') dialog.close();
   else dialog.removeAttribute('open');
+}
+
+function updateAppMetadata() {
+  if ($('appVersion')) $('appVersion').textContent = APP_VERSION;
+  if ($('dataSchemaVersion')) $('dataSchemaVersion').textContent = `v${USER_DATA_VERSION}`;
+  if ($('updateNoteVersion')) $('updateNoteVersion').textContent = VERSION_NOTES_ID;
+  const status = $('updateStatus');
+  if (!status) return;
+  const offlineReady = Boolean(navigator.serviceWorker?.controller);
+  status.textContent = offlineReady ? 'Loaded from this device · Offline ready' : 'Loaded from this device';
+}
+
+async function refreshAppFiles() {
+  setStorageNotice('Refreshing app files. Your saved duas will stay on this device.');
+  try {
+    if ('serviceWorker' in navigator) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.map((registration) => registration.unregister()));
+    }
+    if ('caches' in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.filter((key) => key.includes('hajj-dua-companion')).map((key) => caches.delete(key)));
+    }
+    window.location.reload();
+  } catch (error) {
+    console.error('Could not refresh app files', error);
+    setStorageNotice('App files could not be refreshed. Your saved duas were not changed.', true);
+  }
 }
 
 function setStorageNotice(message, isWarning = false) {
@@ -159,16 +202,131 @@ function makeId(prefix) {
   return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function hasArabic(value = '') {
+  return /[؀-ۿݐ-ݿࢠ-ࣿ]/.test(String(value));
+}
+
+function bodySegmentsFromText(text = '') {
+  const segments = [];
+  String(text || '').replace(/\r\n/g, '\n').split(/\n{2,}/).forEach((block) => {
+    const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
+    if (!lines.length) return;
+    let current = null;
+    lines.forEach((line) => {
+      const type = hasArabic(line) ? 'arabic' : 'text';
+      if (current && current.type === type) current.text += `\n${line}`;
+      else {
+        current = { type, text: line };
+        segments.push(current);
+      }
+    });
+  });
+  return segments;
+}
+
+function normalizeBodySegments(segments, body = '') {
+  if (!Array.isArray(segments) || !segments.length) return bodySegmentsFromText(body);
+  return segments
+    .map((segment) => ({
+      type: segment?.type === 'arabic' ? 'arabic' : 'text',
+      text: String(segment?.text || '').trim(),
+    }))
+    .filter((segment) => segment.text);
+}
+
+function normalizeSourceSnapshot(snapshot) {
+  if (!snapshot || typeof snapshot !== 'object') return null;
+  const sourceId = String(snapshot.sourceId || snapshot.id || '').trim();
+  return {
+    sourceId,
+    title: String(snapshot.title || '').trim(),
+    sourceLabel: String(snapshot.sourceLabel || snapshot.sourceKind || '').trim(),
+    sourceRef: String(snapshot.sourceRef || '').trim(),
+    arabic: String(snapshot.arabic || '').trim(),
+    arabicQpcHafs: String(snapshot.arabicQpcHafs || '').trim(),
+    arabicTajweedHtml: String(snapshot.arabicTajweedHtml || '').trim(),
+    isQuran: Boolean(snapshot.isQuran),
+    transliteration: String(snapshot.transliteration || '').trim(),
+    meaning: String(snapshot.meaning || '').trim(),
+    phraseSegments: normalizePhraseSegments(snapshot.phraseSegments || snapshot.phrase_segments || []),
+  };
+}
+
+function normalizePhraseSegments(segments = []) {
+  if (!Array.isArray(segments)) return [];
+  return segments
+    .map((segment, index) => ({
+      id: String(segment?.id || `segment-${index}`).trim(),
+      label: String(segment?.label || `Phrase ${index + 1}`).trim(),
+      startToken: Math.max(0, Number(segment?.startToken ?? segment?.start ?? 0)),
+      endToken: Math.max(0, Number(segment?.endToken ?? segment?.end ?? segment?.startToken ?? 0)),
+      english: String(segment?.english || '').trim(),
+      transliteration: String(segment?.transliteration || '').trim(),
+      role: segment?.role === 'context' ? 'context' : 'dua',
+    }))
+    .filter((segment) => segment.id && segment.english && segment.endToken >= segment.startToken)
+    .sort((a, b) => a.startToken - b.startToken || a.endToken - b.endToken);
+}
+
+function sourcePlainArabicFromSnapshot(snapshot) {
+  const normalized = normalizeSourceSnapshot(snapshot);
+  if (!normalized) return '';
+  return normalized.isQuran
+    ? (normalized.arabicQpcHafs || normalized.arabic)
+    : normalized.arabic;
+}
+
+function sourceTokensFromText(text = '') {
+  return String(text || '').trim().split(/\s+/).filter(Boolean);
+}
+
+function sourceTokenCount(snapshot) {
+  return sourceTokensFromText(sourcePlainArabicFromSnapshot(snapshot)).length;
+}
+
+function normalizeProtectedSelection(selection, snapshot) {
+  const count = sourceTokenCount(snapshot);
+  if (!snapshot || !count) return null;
+  const rawStart = Number(selection?.startToken ?? selection?.start ?? 0);
+  const rawEnd = Number(selection?.endToken ?? selection?.end ?? count - 1);
+  const startToken = Math.min(Math.max(Number.isFinite(rawStart) ? rawStart : 0, 0), count - 1);
+  const endToken = Math.min(Math.max(Number.isFinite(rawEnd) ? rawEnd : count - 1, startToken), count - 1);
+  return { startToken, endToken };
+}
+
 function normalizeCustomDua(record, kind) {
   const id = String(record?.id || makeId(kind)).trim();
+  const rawBody = String(record?.body || record?.requestText || '').trim();
+  const sourceSnapshot = normalizeSourceSnapshot(record?.originalSource || record?.sourceSnapshot);
+  const protectedSelection = normalizeProtectedSelection(record?.protectedSelection || record?.sourceSelection, sourceSnapshot);
+  const legacyArabic = sourceSnapshot ? sliceTextBySelection(sourcePlainArabicFromSnapshot(sourceSnapshot), protectedSelection) : '';
+  const arabicText = String(record?.arabicText || record?.editableArabic || record?.arabic || legacyArabic || '').trim();
+  const englishText = String(record?.englishText || record?.english || record?.sourceEnglish || (sourceSnapshot ? rawBody : '') || '').trim();
+  const body = sourceSnapshot ? (englishText || rawBody || arabicText) : rawBody;
+  const english = englishText;
+  const transliteration = String(record?.transliteration || record?.sourceTransliteration || sourceSnapshot?.transliteration || '').trim();
+  const phraseSegmentIds = Array.isArray(record?.phraseSegmentIds) ? record.phraseSegmentIds.map((id) => String(id)).filter(Boolean) : [];
+  const autoEnglish = String(record?.autoEnglish || '').trim();
+  const englishEdited = Boolean(record?.englishEdited ?? (autoEnglish && english && english !== autoEnglish));
   return {
     id,
     kind,
     title: String(record?.title || (kind === 'requested' ? 'Requested dua' : 'Personal dua')).trim(),
-    body: String(record?.body || record?.requestText || '').trim(),
+    body,
+    segments: sourceSnapshot ? [] : normalizeBodySegments(record?.segments || record?.bodySegments, body),
+    arabicText,
+    englishText,
+    english,
+    transliteration,
+    protectedSelection,
+    phraseSegmentIds,
+    autoEnglish,
+    englishEdited,
     note: String(record?.note || '').trim(),
     requestedBy: kind === 'requested' ? String(record?.requestedBy || '').trim() : '',
     categoryId: String(record?.categoryId || (kind === 'requested' ? REQUESTED_CATEGORY : NEEDS_CATEGORY)),
+    sourceSnapshot,
+    originalSource: sourceSnapshot,
     createdAt: record?.createdAt || nowIso(),
     updatedAt: record?.updatedAt || record?.createdAt || nowIso(),
   };
@@ -226,7 +384,40 @@ function normalizeUserData(input = {}) {
     savedAppDuas,
     customDuas,
     requestedDuas,
+    reading: normalizeReadingState(input.reading || {}),
     migration: input.migration || {},
+  };
+}
+
+function normalizeReadingState(reading = {}) {
+  const positions = reading.positions && typeof reading.positions === 'object' ? reading.positions : {};
+  return {
+    last: normalizeReadingPosition(reading.last),
+    positions: Object.fromEntries(
+      Object.entries(positions)
+        .map(([key, value]) => [key, normalizeReadingPosition(value)])
+        .filter(([, value]) => value)
+    ),
+  };
+}
+
+function normalizeReadingPosition(value) {
+  if (!value || typeof value !== 'object') return null;
+  const contextKey = String(value.contextKey || '').trim();
+  const targetId = String(value.targetId || '').trim();
+  if (!contextKey || !targetId) return null;
+  return {
+    contextKey,
+    targetId,
+    view: ['hajj', 'collections', 'library', 'saved', 'more'].includes(value.view) ? value.view : 'hajj',
+    moment: String(value.moment || '').trim(),
+    collection: String(value.collection || '').trim(),
+    category: String(value.category || 'All').trim() || 'All',
+    tier: String(value.tier || 'All').trim() || 'All',
+    savedFilter: String(value.savedFilter || 'all').trim() || 'all',
+    query: String(value.query || '').trim(),
+    scrollY: Number.isFinite(Number(value.scrollY)) ? Number(value.scrollY) : 0,
+    updatedAt: value.updatedAt || nowIso(),
   };
 }
 
@@ -255,7 +446,9 @@ function loadUserData() {
   const raw = localStorage.getItem(USER_DATA_KEY);
   if (raw) {
     try {
-      const normalized = normalizeUserData(JSON.parse(raw));
+      const parsed = JSON.parse(raw);
+      if (Number(parsed?.version || 1) < USER_DATA_VERSION) createMigrationBackup('before-user-data-v6-migration', raw);
+      const normalized = normalizeUserData(parsed);
       state.userData = normalized;
       persistUserData(false);
       return normalized;
@@ -330,6 +523,191 @@ function applyFontScale() {
   document.documentElement.style.setProperty('--arabic-scale', state.fontScale.toFixed(2));
 }
 
+function ensureReadingState() {
+  if (!state.userData.reading) state.userData.reading = { last: null, positions: {} };
+  if (!state.userData.reading.positions) state.userData.reading.positions = {};
+  return state.userData.reading;
+}
+
+function currentContextSnapshot() {
+  return {
+    view: state.view,
+    moment: state.moment,
+    collection: state.collection,
+    category: state.category,
+    tier: state.tier,
+    savedFilter: state.savedFilter,
+    query: state.query,
+  };
+}
+
+function readingContextKey(snapshot = currentContextSnapshot()) {
+  if (snapshot.view === 'hajj') return `hajj:${snapshot.moment}:${snapshot.query}`;
+  if (snapshot.view === 'collections') return `collections:${snapshot.collection}:${snapshot.query}`;
+  if (snapshot.view === 'library') return `library:${snapshot.category}:${snapshot.tier}:${snapshot.query}`;
+  if (snapshot.view === 'saved') return `saved:${snapshot.savedFilter}:${snapshot.query}`;
+  if (snapshot.view === 'more') return `more:appendix:${snapshot.query}`;
+  return `view:${snapshot.view}:${snapshot.query}`;
+}
+
+function activeListElement() {
+  if (state.view === 'hajj') return $('hajjList');
+  if (state.view === 'collections') return $('collectionList');
+  if (state.view === 'library') return $('libraryList');
+  if (state.view === 'saved') return $('savedList');
+  if (state.view === 'more') return $('appendixList');
+  return null;
+}
+
+function readingIdFromElement(element) {
+  return element?.dataset?.readingId || '';
+}
+
+function mostVisibleReadingCard() {
+  const list = activeListElement();
+  if (!list) return null;
+  const cards = [...list.querySelectorAll('[data-reading-id]')];
+  let best = null;
+  let bestVisible = 0;
+  const viewportTop = 78;
+  const viewportBottom = window.innerHeight - 92;
+  cards.forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    const visible = Math.max(0, Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, viewportTop));
+    if (visible > bestVisible) {
+      best = card;
+      bestVisible = visible;
+    }
+  });
+  return best;
+}
+
+function saveReadingPosition(targetId = '') {
+  if (!state.userData || state.suppressReadingCapture) return;
+  const card = targetId ? null : mostVisibleReadingCard();
+  const id = targetId || readingIdFromElement(card);
+  if (!id) return;
+  const snapshot = currentContextSnapshot();
+  const contextKey = readingContextKey(snapshot);
+  const position = {
+    ...snapshot,
+    contextKey,
+    targetId: id,
+    scrollY: Math.max(0, window.scrollY || 0),
+    updatedAt: nowIso(),
+  };
+  const reading = ensureReadingState();
+  reading.positions[contextKey] = position;
+  reading.last = position;
+  persistUserData(false);
+  renderContinuePrompt();
+}
+
+function scheduleReadingCapture(targetId = '') {
+  window.clearTimeout(state.readingSaveTimer);
+  state.readingSaveTimer = window.setTimeout(() => saveReadingPosition(targetId), targetId ? 0 : 350);
+}
+
+function readingLabel(position) {
+  if (!position) return 'Continue where you left off';
+  if (position.view === 'hajj') return `Continue: ${position.moment || 'Hajj'}`;
+  if (position.view === 'collections') {
+    const collection = state.data?.collections?.find((item) => item.id === position.collection);
+    return `Continue: ${collection?.title || 'Collections'}`;
+  }
+  if (position.view === 'library') return 'Continue: Library';
+  if (position.view === 'saved') return `Continue: ${saveCategoryLabel(position.savedFilter) || 'Saved'}`;
+  if (position.view === 'more') return 'Continue: Appendix';
+  return 'Continue where you left off';
+}
+
+function applyReadingContext(position) {
+  if (!position) return;
+  state.view = position.view || state.view;
+  state.moment = position.moment || state.moment;
+  state.collection = position.collection || state.collection;
+  state.category = position.category || state.category;
+  state.tier = position.tier || state.tier;
+  state.savedFilter = position.savedFilter || state.savedFilter;
+  state.query = position.query || '';
+  if ($('searchInput')) $('searchInput').value = state.query;
+  const band = document.querySelector('.search-band');
+  if (band) {
+    band.classList.toggle('search-open', Boolean(state.query));
+    $('searchToggle')?.setAttribute('aria-expanded', String(Boolean(state.query)));
+  }
+}
+
+function findReadingElement(targetId) {
+  const activeList = activeListElement();
+  const activeTarget = activeList
+    ? [...activeList.querySelectorAll('[data-reading-id]')].find((element) => element.dataset.readingId === targetId)
+    : null;
+  if (activeTarget) return activeTarget;
+  return [...document.querySelectorAll('[data-reading-id]')].find((element) => element.dataset.readingId === targetId) || null;
+}
+
+function scrollToReadingPosition(position, smooth = false) {
+  if (!position?.targetId) return;
+  window.clearTimeout(state.restoreTimer);
+  const attemptScroll = (attempt = 0) => {
+    const target = findReadingElement(position.targetId);
+    if (target) target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'center' });
+    else if (Number.isFinite(Number(position.scrollY))) window.scrollTo({ top: Number(position.scrollY), behavior: smooth ? 'smooth' : 'auto' });
+    if (attempt < 3) {
+      window.clearTimeout(state.restoreTimer);
+      state.restoreTimer = window.setTimeout(() => attemptScroll(attempt + 1), 140);
+    }
+  };
+  state.restoreTimer = window.setTimeout(() => attemptScroll(0), 80);
+}
+
+function restoreReadingForCurrentContext() {
+  const reading = ensureReadingState();
+  const position = reading.positions[readingContextKey()];
+  if (position) scrollToReadingPosition(position);
+}
+
+function restoreLastReadingContext() {
+  const position = state.userData?.reading?.last;
+  if (!position) return;
+  applyReadingContext(position);
+}
+
+function latestOtherReadingPosition() {
+  const reading = ensureReadingState();
+  const currentKey = readingContextKey();
+  return Object.values(reading.positions || {})
+    .filter((position) => position && position.contextKey && position.contextKey !== currentKey)
+    .sort((a, b) => String(b.updatedAt || '').localeCompare(String(a.updatedAt || '')))[0] || null;
+}
+
+function readingPositionByContext(contextKey = '') {
+  if (!contextKey) return null;
+  return ensureReadingState().positions?.[contextKey] || null;
+}
+
+function renderContinuePrompt() {
+  const band = $('continueBand');
+  const button = $('continueButton');
+  if (!band || !button || !state.userData?.reading) return;
+  const last = state.userData.reading.last;
+  let position = last?.contextKey && last.contextKey !== readingContextKey() ? last : null;
+  if (!position && ['saved', 'more'].includes(state.view)) position = latestOtherReadingPosition();
+  const show = Boolean(position);
+  band.hidden = !show;
+  button.dataset.continueContext = position?.contextKey || '';
+  if (show) button.textContent = readingLabel(position);
+}
+
+function continueLastReading() {
+  const position = readingPositionByContext($('continueButton')?.dataset.continueContext) || latestOtherReadingPosition() || state.userData?.reading?.last;
+  if (!position) return;
+  applyReadingContext(position);
+  render({ restore: false });
+  scrollToReadingPosition(position, true);
+}
+
 function tierClass(tier) {
   if (tier === 'Qur’an') return 'quran';
   if (tier === 'Companion report / Athar') return 'athar';
@@ -365,7 +743,7 @@ function savedItems() {
     .filter((entry) => state.savedFilter === 'all' || entry.categoryId === state.savedFilter)
     .filter((entry) => {
       if (entry.type === 'app') return matchesQuery(entry.item);
-      return matchesTextQuery([entry.record.title, entry.record.body, entry.record.note, entry.record.requestedBy, saveCategoryLabel(entry.categoryId)]);
+      return matchesTextQuery([entry.record.title, entry.record.body, entry.record.english, entry.record.transliteration, entry.record.note, entry.record.requestedBy, saveCategoryLabel(entry.categoryId)]);
     })
     .sort((a, b) => {
       const categoryCompare = saveCategoryLabel(a.categoryId).localeCompare(saveCategoryLabel(b.categoryId));
@@ -412,9 +790,128 @@ function arabicBlock(item) {
   return `<p class="${arabicClass}${tajweedClass}" lang="ar" dir="rtl">${useTajweed ? arabicText : esc(arabicText)}</p>`;
 }
 
+function sourceSnapshotFromItem(item) {
+  if (!item) return null;
+  const isQuran = item.authenticity_tier === 'Qur’an' || Boolean(item.arabic_uthmani);
+  return {
+    sourceId: item.id,
+    title: item.title,
+    sourceLabel: item.source_kind || item.authenticity_tier,
+    sourceRef: item.sunnah_reference || item.source_ref || '',
+    arabic: item.dua_arabic || item.arabic_qpc_hafs || item.arabic || '',
+    arabicQpcHafs: item.arabic_qpc_hafs || '',
+    arabicTajweedHtml: isQuran ? (item.arabic_tajweed_html || '') : '',
+    isQuran,
+    transliteration: item.dua_transliteration || item.transliteration || '',
+    meaning: item.dua_meaning || item.meaning || '',
+    phraseSegments: normalizePhraseSegments(item.phrase_segments || item.phraseSegments || []),
+  };
+}
+
+function sourceItemForSnapshot(snapshot) {
+  if (!snapshot?.sourceId || !state.data?.entries) return null;
+  return state.data.entries.find((item) => item.id === snapshot.sourceId) || null;
+}
+
+function sliceTextBySelection(text = '', selection = null) {
+  const tokens = sourceTokensFromText(text);
+  if (!tokens.length) return '';
+  const normalized = normalizeProtectedSelection(selection, { arabic: text });
+  if (!normalized) return text;
+  return tokens.slice(normalized.startToken, normalized.endToken + 1).join(' ');
+}
+
+function sourceArabicParts(snapshot, selection = null) {
+  const normalized = normalizeSourceSnapshot(snapshot);
+  if (!normalized) return null;
+  const sourceItem = sourceItemForSnapshot(normalized);
+  const isQuran = normalized.isQuran && Boolean(sourceItem?.arabic_tajweed_html || sourceItem?.arabic_uthmani || normalized.arabicQpcHafs);
+  const plainArabic = isQuran
+    ? (sourceItem?.arabic_qpc_hafs || normalized.arabicQpcHafs || normalized.arabic)
+    : (sourceItem?.dua_arabic || normalized.arabic);
+  const tajweedHtml = isQuran ? (sourceItem?.arabic_tajweed_html || normalized.arabicTajweedHtml || '') : '';
+  const protectedSelection = normalizeProtectedSelection(selection, { ...normalized, arabic: plainArabic, arabicQpcHafs: isQuran ? plainArabic : '' });
+  const useTajweed = isQuran && state.tajweed && Boolean(tajweedHtml);
+  const arabicText = useTajweed
+    ? sliceTextBySelection(tajweedHtml, protectedSelection)
+    : sliceTextBySelection(plainArabic, protectedSelection);
+  return {
+    normalized,
+    sourceItem,
+    isQuran,
+    useTajweed,
+    arabicText,
+    arabicClass: isQuran ? 'arabic uthmani' : 'arabic',
+    tajweedClass: useTajweed ? ' tajweed-colors' : '',
+    selection: protectedSelection,
+    count: sourceTokensFromText(plainArabic).length,
+  };
+}
+
+function protectedArabicBlock(snapshot, selection = null, compact = false) {
+  const parts = sourceArabicParts(snapshot, selection);
+  if (!parts?.arabicText) return '';
+  const compactClass = compact ? ' compact-arabic' : '';
+  return `<p class="${parts.arabicClass}${parts.tajweedClass}${compactClass}" lang="ar" dir="rtl">${parts.useTajweed ? parts.arabicText : esc(parts.arabicText)}</p>`;
+}
+
+function isPersonalisedRecord(record) {
+  return Boolean(record?.originalSource || record?.sourceSnapshot);
+}
+
+function renderPersonalisedRecord(record, compact = false) {
+  const snapshot = normalizeSourceSnapshot(record?.originalSource || record?.sourceSnapshot);
+  if (!snapshot) return '';
+  const arabicText = String(record?.arabicText || '').trim();
+  const englishText = String(record?.englishText || record?.english || record?.body || '').trim();
+  return `<section class="source-snapshot personalised-source ${compact ? 'compact' : ''}">
+    <p class="card-subtitle">Personal wording</p>
+    ${arabicText ? `<p class="arabic custom-arabic" lang="ar" dir="rtl">${esc(arabicText).replace(/\n/g, '<br>')}</p>` : ''}
+    ${record.transliteration ? `<p class="translit">${esc(record.transliteration).replace(/\n/g, '<br>')}</p>` : ''}
+    ${englishText ? `<p class="meaning source-meaning">${esc(englishText).replace(/\n/g, '<br>')}</p>` : ''}
+    <details>
+      <summary>Original verified source</summary>
+      ${sourceSnapshotBlock(snapshot, true)}
+      <p class="custom-meta">The text above is your personal wording. Use the original source here to check verified Qur’an/Sunnah wording when needed.</p>
+    </details>
+  </section>`;
+}
+
+function sourceSnapshotBlock(snapshot, compact = false) {
+  const normalized = normalizeSourceSnapshot(snapshot);
+  if (!normalized) return '';
+  const sourceItem = sourceItemForSnapshot(normalized);
+  const isQuran = normalized.isQuran && Boolean(sourceItem?.arabic_tajweed_html || sourceItem?.arabic_uthmani || normalized.arabicQpcHafs);
+  const useTajweed = isQuran && state.tajweed && Boolean(sourceItem?.arabic_tajweed_html);
+  const arabicText = useTajweed
+    ? sourceItem.arabic_tajweed_html
+    : (sourceItem?.arabic_qpc_hafs || normalized.arabicQpcHafs || normalized.arabic);
+  const arabicClass = isQuran ? 'arabic uthmani' : 'arabic';
+  const tajweedClass = useTajweed ? ' tajweed-colors' : '';
+  return `<section class="source-snapshot ${compact ? 'compact' : ''}">
+    <p class="card-subtitle">Original verified source${normalized.sourceLabel ? ` · ${esc(normalized.sourceLabel)}` : ''}</p>
+    ${normalized.title ? `<p class="card-title">${esc(normalized.title)}</p>` : ''}
+    ${arabicText ? `<p class="${arabicClass}${tajweedClass}" lang="ar" dir="rtl">${useTajweed ? arabicText : esc(arabicText)}</p>` : ''}
+    ${normalized.transliteration ? `<p class="translit">${esc(normalized.transliteration)}</p>` : ''}
+    ${normalized.meaning ? `<p class="meaning source-meaning">${esc(normalized.meaning)}</p>` : ''}
+    ${normalized.sourceRef ? `<p class="custom-meta">${esc(normalized.sourceRef)}</p>` : ''}
+  </section>`;
+}
+
 function textBlock(value, className = 'meaning') {
   if (!value) return '';
   return `<p class="${className}" dir="auto">${esc(value).replace(/\n/g, '<br>')}</p>`;
+}
+
+function renderCustomSegments(record) {
+  const segments = normalizeBodySegments(record?.segments, record?.body || '');
+  if (!segments.length) return '';
+  return `<div class="custom-body">${segments.map((segment) => {
+    if (segment.type === 'arabic') {
+      return `<p class="arabic custom-arabic" lang="ar" dir="rtl">${esc(segment.text).replace(/\n/g, '<br>')}</p>`;
+    }
+    return `<p class="meaning custom-text" dir="auto">${esc(segment.text).replace(/\n/g, '<br>')}</p>`;
+  }).join('')}</div>`;
 }
 
 function statusBadges(item) {
@@ -437,10 +934,11 @@ function card(item) {
   const sourceLabel = item.source_kind || item.authenticity_tier;
   const saveAction = `<button class="save ${saved ? 'saved' : ''}" data-save="${esc(item.id)}" type="button" aria-label="${saved ? 'Change saved category' : 'Save dua'}">${saved ? `Saved: ${esc(saveCategoryLabel(savedCategory))}` : 'Save'}</button>`;
   const removeAction = `<button class="remove-saved" data-remove-saved="${esc(item.id)}" type="button">Remove from Saved</button>`;
+  const personaliseAction = `<button class="quiet-button secondary-action" data-personalise="${esc(item.id)}" type="button">Personalise</button>`;
   const actions = state.view === 'saved' && saved
-    ? `${removeAction}<button class="quiet-button" data-focus="${esc(item.id)}" type="button">Focus</button>`
-    : `${saveAction}<button class="quiet-button" data-focus="${esc(item.id)}" type="button">Focus</button>`;
-  return `<article class="dua-card" data-id="${esc(item.id)}">
+    ? `${removeAction}${personaliseAction}<button class="quiet-button" data-focus="${esc(item.id)}" type="button">Focus</button>`
+    : `${saveAction}${personaliseAction}<button class="quiet-button" data-focus="${esc(item.id)}" type="button">Focus</button>`;
+  return `<article class="dua-card" data-id="${esc(item.id)}" data-reading-id="${esc(item.id)}">
     <div class="card-head">
       <div>
         <p class="card-title">${esc(item.title)}</p>
@@ -471,7 +969,8 @@ function card(item) {
 function customSavedCard(entry) {
   const record = entry.record;
   const isRequested = entry.type === 'requested';
-  return `<article class="dua-card custom-card" data-custom-id="${esc(record.id)}">
+  const personalised = isPersonalisedRecord(record);
+  return `<article class="dua-card custom-card" data-custom-id="${esc(record.id)}" data-reading-id="${esc(entry.type)}:${esc(record.id)}">
     <div class="card-head">
       <p class="card-title">${esc(record.title)}</p>
       <div class="badges"><span class="badge guidance">${isRequested ? 'Requested dua' : 'Personal dua'}</span></div>
@@ -480,7 +979,8 @@ function customSavedCard(entry) {
       <span class="badge">Saved in: ${esc(saveCategoryLabel(record.categoryId))}</span>
     </div>
     ${isRequested && record.requestedBy ? `<p class="custom-meta"><strong>Requested by:</strong> ${esc(record.requestedBy)}</p>` : ''}
-    ${textBlock(record.body)}
+    ${personalised ? renderPersonalisedRecord(record) : (record.sourceSnapshot ? sourceSnapshotBlock(record.sourceSnapshot) : '')}
+    ${personalised ? '' : renderCustomSegments(record)}
     ${record.note ? `<details><summary>Personal note</summary>${textBlock(record.note, 'context')}</details>` : ''}
     <div class="card-actions">
       <button class="remove-saved" data-custom-delete="${esc(entry.type)}:${esc(record.id)}" type="button">${isRequested ? 'Delete requested dua' : 'Delete personal dua'}</button>
@@ -578,15 +1078,19 @@ function renderAppendix() {
   renderList('appendixList', visibleEntries({ appendix: true }));
 }
 
-function render() {
+function render(options = {}) {
   document.querySelectorAll('.tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === state.view));
   document.querySelectorAll('.view').forEach((view) => view.classList.remove('active-view'));
   $(`${state.view}View`).classList.add('active-view');
+  if ($('categoryFilter')) $('categoryFilter').value = state.category;
+  if ($('tierFilter')) $('tierFilter').value = state.tier;
   renderHajj();
   renderCollections();
   renderLibrary();
   renderSaved();
   renderAppendix();
+  renderContinuePrompt();
+  if (options.restore) restoreReadingForCurrentContext();
 }
 
 function openFocus(id) {
@@ -748,23 +1252,262 @@ function findCustom(kind, id) {
   return list.find((record) => record.id === id);
 }
 
-function openCustomDuaDialog(kind, id = '') {
+function phraseSegmentsForSnapshot(snapshot = state.pendingCustomSourceSnapshot) {
+  return normalizeSourceSnapshot(snapshot)?.phraseSegments || [];
+}
+
+function hasPhraseSegments(snapshot = state.pendingCustomSourceSnapshot) {
+  return phraseSegmentsForSnapshot(snapshot).length > 0;
+}
+
+function defaultPhraseSegmentIds(snapshot = state.pendingCustomSourceSnapshot) {
+  const segments = phraseSegmentsForSnapshot(snapshot);
+  const duaSegments = segments.filter((segment) => segment.role !== 'context');
+  return (duaSegments.length ? duaSegments : segments).map((segment) => segment.id);
+}
+
+function normalizePhraseSegmentIds(ids = [], snapshot = state.pendingCustomSourceSnapshot) {
+  const segments = phraseSegmentsForSnapshot(snapshot);
+  const validIds = new Set(segments.map((segment) => segment.id));
+  const selected = ids.filter((id) => validIds.has(id));
+  if (!selected.length) return defaultPhraseSegmentIds(snapshot);
+  const indexes = selected.map((id) => segments.findIndex((segment) => segment.id === id)).filter((index) => index >= 0);
+  const min = Math.min(...indexes);
+  const max = Math.max(...indexes);
+  return segments.slice(min, max + 1).map((segment) => segment.id);
+}
+
+function selectedPhraseSegments(ids = state.pendingPhraseSegmentIds, snapshot = state.pendingCustomSourceSnapshot) {
+  const normalizedIds = normalizePhraseSegmentIds(ids, snapshot);
+  const idSet = new Set(normalizedIds);
+  return phraseSegmentsForSnapshot(snapshot).filter((segment) => idSet.has(segment.id));
+}
+
+function selectionFromPhraseSegmentIds(ids = state.pendingPhraseSegmentIds, snapshot = state.pendingCustomSourceSnapshot) {
+  const selected = selectedPhraseSegments(ids, snapshot);
+  if (!selected.length) return null;
+  return normalizeProtectedSelection({
+    startToken: Math.min(...selected.map((segment) => segment.startToken)),
+    endToken: Math.max(...selected.map((segment) => segment.endToken)),
+  }, snapshot);
+}
+
+function suggestedEnglishFromPhraseIds(ids = state.pendingPhraseSegmentIds, snapshot = state.pendingCustomSourceSnapshot) {
+  return selectedPhraseSegments(ids, snapshot).map((segment) => segment.english).filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+}
+
+function suggestedTransliterationFromPhraseIds(ids = state.pendingPhraseSegmentIds, snapshot = state.pendingCustomSourceSnapshot) {
+  return selectedPhraseSegments(ids, snapshot).map((segment) => segment.transliteration).filter(Boolean).join(', ').replace(/\s+/g, ' ').trim();
+}
+
+function setEnglishValue(value, markEdited = false) {
+  state.suppressEnglishEdit = true;
+  $('customEnglish').value = value || '';
+  state.suppressEnglishEdit = false;
+  state.pendingEnglishEdited = markEdited;
+}
+
+function currentProtectedSelection() {
+  const snapshot = state.pendingCustomSourceSnapshot;
+  if (!snapshot) return null;
+  if (hasPhraseSegments(snapshot)) return selectionFromPhraseSegmentIds(state.pendingPhraseSegmentIds, snapshot);
+  const count = sourceTokenCount(snapshot);
+  if (!count) return null;
+  let startToken = Number($('sourceStart').value || 0);
+  let endToken = Number($('sourceEnd').value || count - 1);
+  if (startToken > endToken) endToken = startToken;
+  return normalizeProtectedSelection({ startToken, endToken }, snapshot);
+}
+
+function setProtectedSourceMode(enabled) {
+  $('verifiedPersonaliseFields').hidden = !enabled;
+  $('verifiedPersonaliseFields').setAttribute('aria-hidden', String(!enabled));
+  $('freeBodyField').hidden = enabled;
+  $('customDuaBody').disabled = enabled;
+  $('customArabic').disabled = !enabled;
+  $('customEnglish').disabled = !enabled;
+  $('customTransliteration').disabled = !enabled;
+}
+
+function renderProtectedSourceControls(snapshot, selection = null) {
+  const phraseMode = hasPhraseSegments(snapshot);
+  $('sourcePhrasePanel').hidden = !phraseMode;
+  $('wordTrimControls').hidden = phraseMode;
+  if (phraseMode) {
+    state.pendingPhraseSegmentIds = normalizePhraseSegmentIds(state.pendingPhraseSegmentIds.length ? state.pendingPhraseSegmentIds : defaultPhraseSegmentIds(snapshot), snapshot);
+    renderPhraseGrid();
+    applySuggestedEnglishIfAllowed(true);
+    updatePersonalisePreview();
+    return;
+  }
+  const count = sourceTokenCount(snapshot);
+  const normalized = normalizeProtectedSelection(selection, snapshot);
+  const max = Math.max(0, count - 1);
+  ['sourceStart', 'sourceEnd'].forEach((id) => {
+    $(id).min = '0';
+    $(id).max = String(max);
+    $(id).disabled = count <= 1;
+  });
+  $('sourceStart').value = String(normalized?.startToken || 0);
+  $('sourceEnd').value = String(normalized?.endToken ?? max);
+  updatePersonalisePreview();
+}
+
+function renderPhraseGrid() {
+  const segments = phraseSegmentsForSnapshot();
+  const selected = new Set(normalizePhraseSegmentIds(state.pendingPhraseSegmentIds));
+  $('sourcePhraseGrid').innerHTML = segments.map((segment) => `
+    <button class="phrase-chip ${selected.has(segment.id) ? 'active' : ''} ${segment.role === 'context' ? 'context' : ''}" data-phrase-id="${esc(segment.id)}" type="button">
+      ${esc(segment.label)}
+    </button>
+  `).join('');
+}
+
+function togglePhraseSegment(id) {
+  const segments = phraseSegmentsForSnapshot();
+  const index = segments.findIndex((segment) => segment.id === id);
+  if (index < 0) return;
+  const selectedIndexes = state.pendingPhraseSegmentIds
+    .map((selectedId) => segments.findIndex((segment) => segment.id === selectedId))
+    .filter((selectedIndex) => selectedIndex >= 0);
+  let min = selectedIndexes.length ? Math.min(...selectedIndexes) : index;
+  let max = selectedIndexes.length ? Math.max(...selectedIndexes) : index;
+  if (index < min) min = index;
+  else if (index > max) max = index;
+  else if (index === min && min < max) min += 1;
+  else if (index === max && min < max) max -= 1;
+  else {
+    min = index;
+    max = index;
+  }
+  state.pendingPhraseSegmentIds = segments.slice(min, max + 1).map((segment) => segment.id);
+  renderPhraseGrid();
+  applySuggestedEnglishIfAllowed();
+  updatePersonalisePreview();
+}
+
+function applySuggestedEnglishIfAllowed(force = false) {
+  if (!hasPhraseSegments()) return;
+  const suggested = suggestedEnglishFromPhraseIds();
+  state.pendingAutoEnglish = suggested;
+  if (force || !state.pendingEnglishEdited || !$('customEnglish').value.trim()) {
+    setEnglishValue(suggested, false);
+  }
+  const transliteration = suggestedTransliterationFromPhraseIds();
+  if (transliteration && (!$('customTransliteration').value.trim() || force)) $('customTransliteration').value = transliteration;
+}
+
+function resetProtectedSourceSelection() {
+  if (hasPhraseSegments()) {
+    state.pendingPhraseSegmentIds = defaultPhraseSegmentIds();
+    state.pendingEnglishEdited = false;
+    renderPhraseGrid();
+    applySuggestedEnglishIfAllowed(true);
+    updatePersonalisePreview();
+    return;
+  }
+  renderProtectedSourceControls(state.pendingCustomSourceSnapshot);
+}
+
+function useSuggestedEnglish() {
+  if (hasPhraseSegments()) {
+    state.pendingEnglishEdited = false;
+    applySuggestedEnglishIfAllowed(true);
+    updatePersonalisePreview();
+    return;
+  }
+  setEnglishValue(normalizeSourceSnapshot(state.pendingCustomSourceSnapshot)?.meaning || '', false);
+  updatePersonalisePreview();
+}
+
+function syncProtectedSelection(changedId = '') {
+  const count = sourceTokenCount(state.pendingCustomSourceSnapshot);
+  if (!count) return;
+  let startToken = Number($('sourceStart').value || 0);
+  let endToken = Number($('sourceEnd').value || count - 1);
+  if (startToken > endToken) {
+    if (changedId === 'sourceEnd') startToken = endToken;
+    else endToken = startToken;
+  }
+  state.pendingProtectedSelection = normalizeProtectedSelection({ startToken, endToken }, state.pendingCustomSourceSnapshot);
+  $('sourceStart').value = String(state.pendingProtectedSelection.startToken);
+  $('sourceEnd').value = String(state.pendingProtectedSelection.endToken);
+  updatePersonalisePreview();
+}
+
+function updatePersonalisePreview() {
+  const preview = $('personalisePreview');
+  if (!state.pendingCustomSourceSnapshot || !preview) return;
+  preview.innerHTML = renderPersonalisedRecord({
+    title: $('customDuaTitle').value.trim() || 'Personalised dua',
+    sourceSnapshot: state.pendingCustomSourceSnapshot,
+    originalSource: state.pendingCustomSourceSnapshot,
+    arabicText: $('customArabic').value.trim(),
+    english: $('customEnglish').value.trim(),
+    englishText: $('customEnglish').value.trim(),
+    transliteration: $('customTransliteration').value.trim(),
+  }, true);
+}
+
+function openPersonaliseDialog(id) {
+  const item = state.data.entries.find((entry) => entry.id === id);
+  if (!item) return;
+  saveReadingPosition(id);
+  const returnPosition = {
+    ...currentContextSnapshot(),
+    contextKey: readingContextKey(),
+    targetId: id,
+    scrollY: Math.max(0, window.scrollY || 0),
+    updatedAt: nowIso(),
+  };
+  if ($('focusDialog')?.open) $('focusDialog').close();
+  openCustomDuaDialog('personal', '', {
+    sourceSnapshot: sourceSnapshotFromItem(item),
+    returnTo: returnPosition,
+    title: `My dua - ${item.title}`,
+    english: item.dua_meaning || item.meaning || '',
+    transliteration: item.dua_transliteration || item.transliteration || '',
+  });
+  $('customDuaDialogTitle').textContent = 'Create personal version';
+}
+
+function openCustomDuaDialog(kind, id = '', options = {}) {
   const record = id ? findCustom(kind, id) : null;
+  const sourceSnapshot = normalizeSourceSnapshot(options.sourceSnapshot || record?.originalSource || record?.sourceSnapshot);
+  const hasSource = kind === 'personal' && Boolean(sourceSnapshot);
   state.pendingCustomKind = kind;
   state.pendingCustomId = id;
+  state.pendingCustomSourceSnapshot = hasSource ? sourceSnapshot : null;
+  state.pendingPhraseSegmentIds = hasSource ? (record?.phraseSegmentIds || options.phraseSegmentIds || []) : [];
+  state.pendingProtectedSelection = hasSource ? normalizeProtectedSelection(record?.protectedSelection || options.protectedSelection, sourceSnapshot) : null;
+  state.pendingAutoEnglish = hasSource ? String(record?.autoEnglish || '').trim() : '';
+  state.pendingEnglishEdited = Boolean(record?.englishEdited);
+  state.pendingReturnAfterCustom = options.returnTo || null;
   const isRequested = kind === 'requested';
-  $('customDuaDialogTitle').textContent = record ? (isRequested ? 'Edit requested dua' : 'Edit personal dua') : (isRequested ? 'Add requested dua' : 'Add personal dua');
+  $('customDuaDialogTitle').textContent = hasSource
+    ? (record ? 'Edit personal version' : 'Create personal version')
+    : (record ? (isRequested ? 'Edit requested dua' : 'Edit personal dua') : (isRequested ? 'Add requested dua' : 'Add personal dua'));
   $('customDuaBodyLabel').textContent = isRequested ? 'Requested dua / details' : 'Dua / reminder';
   $('requestedByField').hidden = !isRequested;
   $('requestedByField').setAttribute('aria-hidden', String(!isRequested));
   $('requestedBy').disabled = !isRequested;
-  $('customDuaTitle').value = record?.title || '';
+  $('customDuaTitle').value = record?.title || options.title || '';
   $('requestedBy').value = isRequested ? (record?.requestedBy || '') : '';
-  $('customDuaBody').value = record?.body || '';
-  $('customDuaNote').value = record?.note || '';
+  const fallbackArabic = hasSource ? sliceTextBySelection(sourcePlainArabicFromSnapshot(sourceSnapshot), state.pendingProtectedSelection) : '';
+  $('customArabic').value = hasSource ? (record?.arabicText || options.arabic || fallbackArabic || sourcePlainArabicFromSnapshot(sourceSnapshot) || '') : '';
+  $('customDuaBody').value = hasSource ? '' : (record?.body || options.body || '');
+  setEnglishValue(hasSource ? (record?.englishText || record?.english || options.english || options.body || sourceSnapshot?.meaning || '') : '', false);
+  $('customTransliteration').value = hasSource ? (record?.transliteration || options.transliteration || sourceSnapshot?.transliteration || '') : '';
+  $('customDuaNote').value = record?.note || options.note || '';
   $('customDuaDelete').hidden = !record;
   const defaultCategory = isRequested ? REQUESTED_CATEGORY : (userCategories().find((category) => !category.protected)?.id || NEEDS_CATEGORY);
   renderCustomCategoryOptions(record?.categoryId || defaultCategory);
+  setProtectedSourceMode(hasSource);
+  const preview = $('customSourcePreview');
+  preview.hidden = true;
+  preview.innerHTML = '';
+  if (hasSource) updatePersonalisePreview();
+  else $('personalisePreview').innerHTML = '';
   $('customDuaDialog').showModal();
 }
 
@@ -773,9 +1516,16 @@ function saveCustomDua() {
   const isRequested = kind === 'requested';
   const list = isRequested ? state.userData.requestedDuas : state.userData.customDuas;
   const existing = state.pendingCustomId ? list.find((record) => record.id === state.pendingCustomId) : null;
-  const body = $('customDuaBody').value.trim();
-  if (!body) {
+  const hasSource = !isRequested && Boolean(state.pendingCustomSourceSnapshot);
+  const arabicText = hasSource ? $('customArabic').value.trim() : '';
+  const englishText = hasSource ? $('customEnglish').value.trim() : '';
+  const body = hasSource ? (englishText || arabicText) : $('customDuaBody').value.trim();
+  if (!hasSource && !body) {
     setStorageNotice(isRequested ? 'Please enter the requested dua/details before saving.' : 'Please enter the dua/reminder before saving.', true);
+    return;
+  }
+  if (hasSource && !arabicText && !englishText && !$('customTransliteration').value.trim()) {
+    setStorageNotice('Please keep at least Arabic, transliteration, or English wording before saving.', true);
     return;
   }
   const requestedBy = $('requestedBy').value.trim();
@@ -785,9 +1535,20 @@ function saveCustomDua() {
     kind,
     title,
     body,
+    segments: hasSource ? [] : bodySegmentsFromText(body),
+    arabicText,
+    englishText: hasSource ? englishText : '',
+    english: hasSource ? englishText : '',
+    transliteration: hasSource ? $('customTransliteration').value.trim() : '',
+    protectedSelection: hasSource ? (existing?.protectedSelection || state.pendingProtectedSelection || null) : null,
+    phraseSegmentIds: hasSource ? (existing?.phraseSegmentIds || state.pendingPhraseSegmentIds || []) : [],
+    autoEnglish: hasSource ? (existing?.autoEnglish || state.pendingAutoEnglish || '') : '',
+    englishEdited: hasSource ? Boolean(existing?.englishEdited) : false,
     note: $('customDuaNote').value.trim(),
     requestedBy: isRequested ? requestedBy : '',
     categoryId: $('customDuaCategory').value || (isRequested ? REQUESTED_CATEGORY : NEEDS_CATEGORY),
+    sourceSnapshot: hasSource ? normalizeSourceSnapshot(state.pendingCustomSourceSnapshot || existing?.sourceSnapshot || existing?.originalSource) : null,
+    originalSource: hasSource ? normalizeSourceSnapshot(state.pendingCustomSourceSnapshot || existing?.originalSource || existing?.sourceSnapshot) : null,
     createdAt: existing?.createdAt || nowIso(),
     updatedAt: nowIso(),
   };
@@ -795,9 +1556,22 @@ function saveCustomDua() {
   else list.unshift(record);
   saveState();
   $('customDuaDialog').close();
-  state.view = 'saved';
-  state.savedFilter = record.categoryId;
-  render();
+  const returnPosition = state.pendingReturnAfterCustom;
+  state.pendingCustomSourceSnapshot = null;
+  state.pendingReturnAfterCustom = null;
+  state.pendingProtectedSelection = null;
+  state.pendingPhraseSegmentIds = [];
+  state.pendingAutoEnglish = '';
+  state.pendingEnglishEdited = false;
+  if (returnPosition) {
+    applyReadingContext(returnPosition);
+    render({ restore: false });
+    scrollToReadingPosition(returnPosition, false);
+  } else {
+    state.view = 'saved';
+    state.savedFilter = record.categoryId;
+    render({ restore: true });
+  }
 }
 
 function deleteCustomDua(kind, id) {
@@ -885,23 +1659,48 @@ function populateFilters() {
 document.addEventListener('click', (event) => {
   const target = event.target.closest('button');
   if (!target) return;
-  if (target.dataset.view) { state.view = target.dataset.view; render(); }
-  if (target.dataset.moment) { state.moment = target.dataset.moment; render(); }
-  if (target.dataset.collection) { state.collection = target.dataset.collection; render(); }
-  if (target.dataset.savedFilter) { state.savedFilter = target.dataset.savedFilter; renderSaved(); }
-  if (target.dataset.save) openSaveDialog(target.dataset.save);
-  if (target.dataset.saveCategory) { state.pendingSaveCategory = target.dataset.saveCategory; renderSaveDialogCategories(); }
-  if (target.dataset.removeSaved) removeSaved(target.dataset.removeSaved);
-  if (target.dataset.focus) openFocus(target.dataset.focus);
-  if (target.dataset.categoryUpdate) updateCategory(target.dataset.categoryUpdate);
-  if (target.dataset.categoryDelete) deleteCategory(target.dataset.categoryDelete);
+  if (target.dataset.view) {
+    saveReadingPosition();
+    state.view = target.dataset.view;
+    render({ restore: true });
+    return;
+  }
+  if (target.dataset.moment) {
+    saveReadingPosition();
+    state.moment = target.dataset.moment;
+    render({ restore: true });
+    return;
+  }
+  if (target.dataset.collection) {
+    saveReadingPosition();
+    state.collection = target.dataset.collection;
+    render({ restore: true });
+    return;
+  }
+  if (target.dataset.savedFilter) {
+    saveReadingPosition();
+    state.savedFilter = target.dataset.savedFilter;
+    renderSaved();
+    restoreReadingForCurrentContext();
+    renderContinuePrompt();
+    return;
+  }
+  if (target.dataset.save) { saveReadingPosition(target.dataset.save); openSaveDialog(target.dataset.save); return; }
+  if (target.dataset.saveCategory) { state.pendingSaveCategory = target.dataset.saveCategory; renderSaveDialogCategories(); return; }
+  if (target.dataset.removeSaved) { removeSaved(target.dataset.removeSaved); return; }
+  if (target.dataset.personalise) { openPersonaliseDialog(target.dataset.personalise); return; }
+  if (target.dataset.focus) { saveReadingPosition(target.dataset.focus); openFocus(target.dataset.focus); return; }
+  if (target.dataset.categoryUpdate) { updateCategory(target.dataset.categoryUpdate); return; }
+  if (target.dataset.categoryDelete) { deleteCategory(target.dataset.categoryDelete); return; }
   if (target.dataset.categoryMove) {
     const [id, direction] = target.dataset.categoryMove.split(':');
     moveCategory(id, direction);
+    return;
   }
   if (target.dataset.customEdit) {
     const [kind, id] = target.dataset.customEdit.split(':');
     openCustomDuaDialog(kind, id);
+    return;
   }
   if (target.dataset.customDelete) {
     const [kind, id] = target.dataset.customDelete.split(':');
@@ -910,8 +1709,9 @@ document.addEventListener('click', (event) => {
 });
 
 $('settingsOpen').addEventListener('click', () => {
+  saveReadingPosition();
   state.view = 'more';
-  render();
+  render({ restore: false });
   $('readingSettings').open = true;
   window.setTimeout(() => $('readingSettings').scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
 });
@@ -946,6 +1746,7 @@ $('collectionFocusFirst').addEventListener('click', () => {
 });
 $('focusClose').addEventListener('click', () => $('focusDialog').close());
 $('focusSave').addEventListener('click', () => openSaveDialog(state.focusItems[state.focusIndex].id));
+$('focusPersonalise').addEventListener('click', () => openPersonaliseDialog(state.focusItems[state.focusIndex].id));
 $('focusPrev').addEventListener('click', () => { state.focusIndex = Math.max(0, state.focusIndex - 1); renderFocus(); });
 $('focusNext').addEventListener('click', () => { state.focusIndex = Math.min(state.focusItems.length - 1, state.focusIndex + 1); renderFocus(); });
 $('saveDialogClose').addEventListener('click', () => $('saveDialog').close());
@@ -957,10 +1758,26 @@ $('newCategoryTitle').addEventListener('keydown', (event) => { if (event.key ===
 $('customDuaClose').addEventListener('click', () => $('customDuaDialog').close());
 $('customDuaSave').addEventListener('click', saveCustomDua);
 $('customDuaDelete').addEventListener('click', () => deleteCustomDua(state.pendingCustomKind, state.pendingCustomId));
+$('sourceStart').addEventListener('input', () => syncProtectedSelection('sourceStart'));
+$('sourceEnd').addEventListener('input', () => syncProtectedSelection('sourceEnd'));
+$('sourceReset').addEventListener('click', resetProtectedSourceSelection);
+$('sourceUseSuggested').addEventListener('click', useSuggestedEnglish);
+$('sourcePhraseGrid').addEventListener('click', (event) => {
+  const target = event.target.closest('[data-phrase-id]');
+  if (target) togglePhraseSegment(target.dataset.phraseId);
+});
+$('customDuaTitle').addEventListener('input', updatePersonalisePreview);
+$('customArabic').addEventListener('input', updatePersonalisePreview);
+$('customEnglish').addEventListener('input', updatePersonalisePreview);
+$('customTransliteration').addEventListener('input', updatePersonalisePreview);
 $('exportBackup').addEventListener('click', exportBackup);
 $('importBackup').addEventListener('click', () => $('backupFile').click());
 $('backupFile').addEventListener('change', (event) => importBackupFile(event.target.files[0]));
+$('showVersionNotes').addEventListener('click', openVersionNotes);
+$('refreshAppFiles').addEventListener('click', refreshAppFiles);
 $('versionNotesOk').addEventListener('click', closeVersionNotes);
+$('continueButton').addEventListener('click', continueLastReading);
+window.addEventListener('scroll', () => scheduleReadingCapture(), { passive: true });
 
 async function init() {
   const response = await fetch('data/duas.json');
@@ -968,11 +1785,20 @@ async function init() {
   loadUserData();
   state.fontScale = state.userData.settings.fontScale;
   state.tajweed = state.userData.settings.tajweed;
+  restoreLastReadingContext();
   applyFontScale();
   $('tajweedToggle').checked = state.tajweed;
   populateFilters();
-  render();
+  render({ restore: true });
   maybeShowVersionNotes();
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => navigator.serviceWorker.ready)
+      .then(updateAppMetadata)
+      .catch(() => updateAppMetadata());
+    navigator.serviceWorker.addEventListener('controllerchange', updateAppMetadata);
+  } else {
+    updateAppMetadata();
+  }
 }
 init();

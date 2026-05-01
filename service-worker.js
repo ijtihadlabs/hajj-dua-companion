@@ -1,4 +1,4 @@
-const CACHE = 'hajj-dua-companion-2026-04-30';
+const CACHE = 'hajj-dua-companion-local-2026-05-01-personalise-v6';
 const ASSETS = [
   './',
   './index.html',

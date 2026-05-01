@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026.05.01
+
+- Added a visible app version/status block in `More -> About`.
+- Added `Show what's new` to reopen the release notes after the one-time popup is dismissed.
+- Added `Refresh app files` to refresh cache/service-worker files without clearing saved user data.
+- Simplified `Create personal version` so Arabic, transliteration, and English can be edited directly.
+- Rendered personal/requested Arabic with the same large readable Arabic styling as the main app.
+- Kept original verified Qur'an/Sunnah source text as a collapsed reference for personalised duas.
+- Preserved saved duas, requested duas, custom categories, settings, backups, and reading position under saved-data schema `v6`.
+
 ## 2026.04.30
 
 - Refreshed the app reading layout and in-app title mark.

@@ -52,6 +52,10 @@
       </label>
     </section>
 
+    <section id="continueBand" class="continue-band" hidden>
+      <button id="continueButton" class="continue-button" type="button">Continue where you left off</button>
+    </section>
+
     <section id="hajjView" class="view active-view">
       <div id="momentGrid" class="moment-grid"></div>
       <div class="section-head">
@@ -151,6 +155,17 @@
 
         <section class="workspace-panel">
           <h2>About</h2>
+          <div class="version-panel" aria-label="App version and update status">
+            <p><strong>App version:</strong> <span id="appVersion">2026.05.01</span></p>
+            <p><strong>Saved data schema:</strong> <span id="dataSchemaVersion">v6</span></p>
+            <p><strong>Last update note:</strong> <span id="updateNoteVersion">2026.05.01</span></p>
+            <p><strong>Update status:</strong> <span id="updateStatus">Loaded from this device</span></p>
+            <p class="privacy-note">Updates keep your saved duas unless browser website data is cleared.</p>
+            <div class="saved-actions">
+              <button id="showVersionNotes" type="button">Show what’s new</button>
+              <button id="refreshAppFiles" type="button">Refresh app files</button>
+            </div>
+          </div>
           <p class="privacy-note">Built as a free khidmah by Ijtihad Labs. References are provided for ease. Open dua moments are not fixed wordings; please review important religious matters with reliable scholarship.</p>
           <p><a class="text-link" href="https://ijtihadlabs.org" target="_blank" rel="noreferrer">Ijtihad Labs</a> · <a class="text-link" href="https://github.com/ijtihadlabs/hajj-dua-companion" target="_blank" rel="noreferrer">GitHub</a> · <a class="text-link" href="mailto:contact@ijtihadlabs.org">Contact</a></p>
         </section>
@@ -174,6 +189,7 @@
     <div class="focus-shell">
       <div class="focus-actions">
         <button id="focusClose" type="button">Close</button>
+        <button id="focusPersonalise" type="button">Personalise</button>
         <button id="focusSave" type="button">Save</button>
       </div>
       <article id="focusContent"></article>
@@ -206,7 +222,34 @@
       </div>
       <label class="form-field"><span id="customDuaTitleLabel">Title</span><input id="customDuaTitle" type="text" autocomplete="off" dir="auto"></label>
       <label id="requestedByField" class="form-field" hidden aria-hidden="true"><span>Requested by</span><input id="requestedBy" type="text" autocomplete="off" dir="auto" placeholder="Name" disabled></label>
-      <label class="form-field"><span id="customDuaBodyLabel">Dua / reminder</span><textarea id="customDuaBody" rows="7" dir="auto"></textarea></label>
+      <div id="customSourcePreview" class="dialog-source-preview" hidden></div>
+      <section id="verifiedPersonaliseFields" class="verified-personalise" hidden aria-hidden="true">
+        <p class="custom-meta">Edit this as your personal wording. The original verified source is kept for reference after saving.</p>
+        <label class="form-field"><span>Arabic</span><textarea id="customArabic" class="arabic-input" rows="5" lang="ar" dir="rtl"></textarea></label>
+        <label class="form-field"><span>Transliteration</span><textarea id="customTransliteration" rows="3" dir="auto"></textarea></label>
+        <label class="form-field"><span>English meaning / personal wording</span><textarea id="customEnglish" rows="5" dir="auto"></textarea></label>
+        <div id="personalisePreview" class="dialog-source-preview"></div>
+        <div class="protected-source legacy-personalise-controls" hidden aria-hidden="true">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow">Verified source Arabic</p>
+              <p id="sourceTrimLabel" class="custom-meta">Full dua selected</p>
+            </div>
+            <button id="sourceReset" class="quiet-button" type="button">Reset full dua</button>
+          </div>
+          <div id="sourcePhrasePanel" class="phrase-panel" hidden>
+            <p class="custom-meta">Select contiguous phrase chunks. The English suggestion follows these curated phrases.</p>
+            <div id="sourcePhraseGrid" class="phrase-grid"></div>
+          </div>
+          <div id="wordTrimControls" class="word-trim-controls">
+            <label class="form-field range-field"><span>Start word</span><input id="sourceStart" type="range" min="0" max="0" value="0"></label>
+            <label class="form-field range-field"><span>End word</span><input id="sourceEnd" type="range" min="0" max="0" value="0"></label>
+            <p id="sourceFallbackNote" class="custom-meta">English is editable because this Arabic selection has not been phrase-mapped yet.</p>
+          </div>
+          <button id="sourceUseSuggested" class="quiet-button" type="button">Use suggested English</button>
+        </div>
+      </section>
+      <label id="freeBodyField" class="form-field"><span id="customDuaBodyLabel">Dua / reminder</span><textarea id="customDuaBody" rows="7" dir="auto"></textarea></label>
       <label class="form-field"><span>Personal note</span><textarea id="customDuaNote" rows="3" dir="auto"></textarea></label>
       <label class="form-field"><span>Saved category</span><select id="customDuaCategory"></select></label>
       <div class="dialog-actions split-actions">
@@ -219,15 +262,15 @@
   <dialog id="versionNotesDialog" class="version-notes-dialog" aria-labelledby="versionNotesTitle">
     <div class="save-shell version-notes">
       <div class="section-head">
-        <h2 id="versionNotesTitle">What’s new in 2026.04.30</h2>
+        <h2 id="versionNotesTitle">What’s new in 2026.05.01</h2>
       </div>
       <p class="privacy-note">A quick note so the new look and features do not surprise you.</p>
       <ul>
-        <li>Calmer reading layout with simple bottom navigation.</li>
-        <li>Saved is now a personal dua notebook with editable categories.</li>
-        <li>You can add personal duas and requested duas privately on this device.</li>
-        <li>More contains reading settings, backup/import, PDF, and Appendix.</li>
-        <li>New verified Hajj, Umrah, and Madinah guidance has clearer source notes.</li>
+        <li>Personal duas now use the same large Arabic reading style as the app.</li>
+        <li>Create personal version now lets you edit Arabic, transliteration, and English directly.</li>
+        <li>Your saved duas, requested duas, categories, and settings are preserved.</li>
+        <li>Original verified Qur’an/Sunnah source text is kept for reference.</li>
+        <li>You can still export a backup from Saved before travel.</li>
       </ul>
       <div class="dialog-actions">
         <button id="versionNotesOk" class="quiet-button" type="button">OK</button>
